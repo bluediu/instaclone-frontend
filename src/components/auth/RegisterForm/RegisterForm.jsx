@@ -1,11 +1,35 @@
 import { Form, Button } from 'semantic-ui-react';
 import './RegisterForm.scss';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 const RegisterForm = ({ setShowLogin }) => {
   const formik = useFormik({
-    initialValues: initialValues,
-    validationSchema: null,
+    initialValues: initialValues(),
+    validationSchema: Yup.object({
+      name: Yup.string().required('Tu nombre es obligatorio'),
+      username: Yup.string()
+        .matches(
+          /^[a-zA-Z0-9-]*$/,
+          'El nombre de usuario no puede tener espacios en blanco '
+        )
+        .required('El nombre de usuario es obligatorio'),
+      email: Yup.string()
+        .email('El email no es valido')
+        .required('El email es obligatorio'),
+      password: Yup.string()
+        .required('La contraseña es obligatoria')
+        .oneOf(
+          [Yup.ref('repeatPassword')],
+          'Las contraseñas no son iguales'
+        ),
+      repeatPassword: Yup.string()
+        .required('La contraseña es obligatoria')
+        .oneOf(
+          [Yup.ref('password')],
+          'Las contraseñas no son iguales'
+        ),
+    }),
     onSubmit: (formValues) => {
       console.log(formValues);
     },
@@ -24,30 +48,40 @@ const RegisterForm = ({ setShowLogin }) => {
           type="text"
           placeholder="Nombre y apellido"
           name="name"
+          value={formik.values.name}
           onChange={formik.handleChange}
+          error={formik.errors.name && true}
         />
         <Form.Input
           type="text"
           placeholder="Nombre de usuario"
           name="username"
+          value={formik.values.username}
           onChange={formik.handleChange}
+          error={formik.errors.username && true}
         />
         <Form.Input
           type="text"
           placeholder="Correo electrónico"
           name="email"
+          value={formik.values.email}
+          error={formik.errors.email && true}
           onChange={formik.handleChange}
         />
         <Form.Input
           type="password"
           placeholder="Contraseña"
           name="password"
+          value={formik.values.password}
+          error={formik.errors.password && true}
           onChange={formik.handleChange}
         />
         <Form.Input
           type="password"
           placeholder="Repetir contraseña"
           name="repeatPassword"
+          value={formik.values.repeatPassword}
+          error={formik.errors.repeatPassword && true}
           onChange={formik.handleChange}
         />
 
