@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Container, Image } from 'semantic-ui-react';
 import instaclone from '../../assets/instaclone.png';
+import LoginForm from '../../components/auth/LoginForm/LoginForm';
 import RegisterForm from '../../components/auth/RegisterForm';
 import './Auth.scss';
 
 const Auth = () => {
-  const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
 
   return (
     <Container fluid className="auth">
@@ -13,7 +14,7 @@ const Auth = () => {
 
       <section className="container-form">
         {showLogin ? (
-          <p>Form Login</p>
+          <LoginForm />
         ) : (
           <RegisterForm setShowLogin={setShowLogin} />
         )}

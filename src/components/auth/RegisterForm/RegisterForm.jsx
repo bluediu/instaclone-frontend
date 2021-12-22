@@ -2,8 +2,13 @@ import { Form, Button } from 'semantic-ui-react';
 import './RegisterForm.scss';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
+import { REGISTER } from '../../../gql/user';
+import { useMutation } from '@apollo/client';
 
 const RegisterForm = ({ setShowLogin }) => {
+  const [register] = useMutation(REGISTER);
+
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object({
@@ -30,8 +35,23 @@ const RegisterForm = ({ setShowLogin }) => {
           'Las contraseñas no son iguales'
         ),
     }),
-    onSubmit: (formValues) => {
-      console.log(formValues);
+    onSubmit: async (formValues) => {
+      try {
+        const newUser = formValues;
+        delete newUser.repeatPassword;
+
+        await register({
+          variables: {
+            input: newUser,
+          },
+        });
+
+        toast.success('Usuario registrado correctamente');
+        setShowLogin(true);
+      } catch (error) {
+        toast.error(error.message);
+        console.error(error);
+      }
     },
   });
 

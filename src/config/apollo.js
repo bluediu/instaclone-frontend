@@ -1,17 +1,20 @@
 import {
   ApolloClient,
-  createHttpLink,
+  //createHttpLink,
   InMemoryCache,
 } from '@apollo/client';
 
-const httpLink = createHttpLink({
-  url: 'http://localhost:4000/',
-});
-
+/* 
+  Deprecado
+  const httpLink = createHttpLink({
+    url: 'http://localhost:4000/',
+  });
+*/
 const client = new ApolloClient({
   connectToDevTools: true,
   cache: new InMemoryCache(),
-  link: httpLink,
+  uri: 'http://localhost:4000/',
+  //  link: httpLink ,
 });
 
 export default client;
