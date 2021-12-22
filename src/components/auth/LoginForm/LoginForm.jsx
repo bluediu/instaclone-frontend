@@ -3,9 +3,9 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
 import './LoginForm.scss';
-import { toast } from 'react-toastify';
 import { LOGIN } from '../../../gql/user';
 import { useState } from 'react';
+import { setToken } from '../../../utils/token';
 
 function LoginForm() {
   const [error, setError] = useState('');
@@ -30,7 +30,8 @@ function LoginForm() {
           },
         });
 
-        console.log(data);
+        const { token } = data.login;
+        setToken(token);
       } catch (error) {
         setError(error.message);
       }
