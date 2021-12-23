@@ -1,10 +1,11 @@
-import { useEffect, useState, useMemo } from 'react';
-import client from './config/apollo';
 import { ApolloProvider } from '@apollo/client';
-import { ToastContainer } from 'react-toastify';
-import Auth from './pages/auth';
 import { getToken } from './utils/token';
+import { ToastContainer } from 'react-toastify';
+import { useEffect, useState, useMemo } from 'react';
+import Auth from './pages/auth';
 import AuthContext from './context/AuthContext';
+import client from './config/apollo';
+import Home from './pages/home/Home';
 
 function App() {
   const [auth, setAuth] = useState(undefined);
@@ -39,7 +40,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <AuthContext.Provider value={authData}>
-        {!auth ? <Auth /> : <h1>Logeado</h1>}
+        {!auth ? <Auth /> : <Home />}
 
         <ToastContainer
           position="top-right"

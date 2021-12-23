@@ -1,11 +1,11 @@
+import './LoginForm.scss';
 import { Form, Button } from 'semantic-ui-react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useMutation } from '@apollo/client';
-import './LoginForm.scss';
 import { LOGIN } from '../../../gql/user';
 import { useState } from 'react';
-import { setToken } from '../../../utils/token';
+import { decodeToken, setToken } from '../../../utils/token';
 import useAuth from '../../../hooks/useAuth';
 
 function LoginForm() {
@@ -35,7 +35,8 @@ function LoginForm() {
 
         const { token } = data.login;
         setToken(token);
-        setUser(token);
+
+        setUser(decodeToken(token));
       } catch (error) {
         setError(error.message);
       }
