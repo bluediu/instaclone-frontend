@@ -6,10 +6,13 @@ import './LoginForm.scss';
 import { LOGIN } from '../../../gql/user';
 import { useState } from 'react';
 import { setToken } from '../../../utils/token';
+import useAuth from '../../../hooks/useAuth';
 
 function LoginForm() {
   const [error, setError] = useState('');
   const [login] = useMutation(LOGIN);
+
+  const { setUser } = useAuth();
 
   const formik = useFormik({
     initialValues: initialValues(),
@@ -32,6 +35,7 @@ function LoginForm() {
 
         const { token } = data.login;
         setToken(token);
+        setUser(token);
       } catch (error) {
         setError(error.message);
       }
