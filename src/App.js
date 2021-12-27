@@ -1,11 +1,10 @@
 import { ApolloProvider } from '@apollo/client';
-import { getToken } from './utils/token';
+import { decodeToken, getToken } from './utils/token';
 import { ToastContainer } from 'react-toastify';
 import { useEffect, useState, useMemo } from 'react';
 import Auth from './pages/Auth';
 import AuthContext from './context/AuthContext';
 import client from './config/apollo';
-import Home from './pages/Home/Home';
 import Navigation from './routes/Navigation';
 
 function App() {
@@ -17,7 +16,7 @@ function App() {
     if (!token) {
       setAuth(null);
     } else {
-      setAuth(token);
+      setAuth(decodeToken(token));
     }
   }, []);
 
