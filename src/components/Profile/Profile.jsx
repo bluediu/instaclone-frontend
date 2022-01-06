@@ -1,15 +1,20 @@
 import { useState } from 'react';
-
 import './Profile.scss';
+
 import { Grid, Image } from 'semantic-ui-react';
 import { useQuery } from '@apollo/client';
 import { GET_USER } from '../../gql/user';
+import useAuth from '../../hooks/useAuth';
 import ImageNotFound from '../../assets/avatar.png';
 import ModalBasic from '../Modal/ModalBasic';
 import UserNotFound from '../UserNotFound';
+import AvatarForm from '../User/AvatarForm';
 
 function Profile({ username }) {
   const [showModal, setShowModal] = useState();
+  const [titleModal, setTitleModal] = useState('');
+  const [clidrenModal, setClidrenModal] = useState(null);
+  const { auth } = useAuth();
   const { data, loading, error } = useQuery(GET_USER, {
     variables: {
       username,
@@ -22,6 +27,19 @@ function Profile({ username }) {
 
   const { getUser } = data;
 
+  const handleModal = (type) => {
+    switch (type) {
+      case 'avatar':
+        setTitleModal('Cambiar foto del perfil');
+        setClidrenModal(<AvatarForm />);
+        setShowModal(true);
+        break;
+
+      default:
+        break;
+    }
+  };
+
   return (
     <>
       <Grid className="profile">
@@ -29,7 +47,9 @@ function Profile({ username }) {
           <Image
             src={ImageNotFound}
             avatar
-            onClick={() => setShowModal(true)}
+            onClick={() =>
+              username === auth.username && handleModal('avatar')
+            }
           />
         </Grid.Column>
         <Grid.Column width={11} className="profile__right">
@@ -59,11 +79,9 @@ function Profile({ username }) {
       <ModalBasic
         show={showModal}
         setShow={setShowModal}
-        title="Subir avatar"
+        title={titleModal}
       >
-        <p>Opciones</p>
-        <p>Opciones</p>
-        <p>Opciones</p>
+        {clidrenModal}
       </ModalBasic>
     </>
   );
