@@ -11,7 +11,7 @@ import UserNotFound from '../UserNotFound';
 import AvatarForm from '../User/AvatarForm';
 
 function Profile({ username }) {
-  const [showModal, setShowModal] = useState();
+  const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState('');
   const [clidrenModal, setClidrenModal] = useState(null);
   const { auth } = useAuth();
@@ -31,7 +31,9 @@ function Profile({ username }) {
     switch (type) {
       case 'avatar':
         setTitleModal('Cambiar foto del perfil');
-        setClidrenModal(<AvatarForm />);
+        setClidrenModal(
+          <AvatarForm setShowModal={setShowModal} />
+        );
         setShowModal(true);
         break;
 

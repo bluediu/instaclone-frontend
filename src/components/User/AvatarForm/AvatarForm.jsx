@@ -1,9 +1,14 @@
 import './AvatarForm.scss';
+import { Button } from 'semantic-ui-react';
 
-function AvatarForm() {
+function AvatarForm({ setShowModal }) {
   return (
-    <div>
-      <h1>Avatra form</h1>
+    <div className="avatar-form">
+      <Button>Cargar una foto</Button>
+      <Button>Eliminar foto actual</Button>
+      <Button onClick={() => setShowModal(false)}>
+        Cancelar
+      </Button>
     </div>
   );
 }
