@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import Profile from '../components/Profile/Profile';
+import Profile from '../components/User/Profile';
 
 function User() {
   const { username } = useParams();

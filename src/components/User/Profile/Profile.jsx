@@ -1,14 +1,14 @@
-import { useState } from 'react';
 import './Profile.scss';
 
+import { useState } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import { useQuery } from '@apollo/client';
-import { GET_USER } from '../../gql/user';
-import useAuth from '../../hooks/useAuth';
-import ImageNotFound from '../../assets/avatar.png';
-import ModalBasic from '../Modal/ModalBasic';
-import UserNotFound from '../UserNotFound';
-import AvatarForm from '../User/AvatarForm';
+import { GET_USER } from '../../../gql/user';
+import useAuth from '../../../hooks/useAuth';
+import ImageNotFound from '../../../assets/avatar.png';
+import ModalBasic from '../../Modal/ModalBasic';
+import UserNotFound from '../../UserNotFound';
+import AvatarForm from '../AvatarForm';
 
 function Profile({ username }) {
   const [showModal, setShowModal] = useState(false);
