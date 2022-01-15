@@ -25,6 +25,7 @@ function Profile({ username }) {
 
   if (error) return <UserNotFound />;
 
+  /* Query name */
   const { getUser } = data;
 
   const handleModal = (type) => {

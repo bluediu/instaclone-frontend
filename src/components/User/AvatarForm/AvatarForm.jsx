@@ -47,8 +47,6 @@ function AvatarForm({ setShowModal, auth }) {
 
         const { data } = res;
 
-        console.log(data);
-
         if (!data.updateAvatar.status) {
           toast.warning('Error al actualizar el avatar');
           setLoading(false);
