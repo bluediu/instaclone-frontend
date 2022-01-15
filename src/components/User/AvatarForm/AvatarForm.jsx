@@ -3,11 +3,38 @@ import { Button } from 'semantic-ui-react';
 import { useDropzone } from 'react-dropzone';
 import { useCallback, useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { UPDATE_AVATAR } from '../../../gql/user';
+import { UPDATE_AVATAR, GET_USER } from '../../../gql/user';
 import { toast } from 'react-toastify';
 
-function AvatarForm({ setShowModal }) {
-  const [updateAvatar] = useMutation(UPDATE_AVATAR);
+function AvatarForm({ setShowModal, auth }) {
+  const [updateAvatar] = useMutation(UPDATE_AVATAR, {
+    update(cache, { data: { updateAvatar } }) {
+      /* 
+      Read the query that has been previously consumed in Profile compornent saved in Cache
+      */
+      const { getUser } = cache.readQuery({
+        query: GET_USER,
+        variables: {
+          username: auth.username,
+        },
+      });
+
+      /* 
+      Then, update the specific property that has been update by updateAvatar query, and taked the previous state and updated the prop 
+      */
+      cache.writeQuery({
+        query: GET_USER,
+        variables: {
+          username: auth.username,
+        },
+        data: {
+          ...getUser,
+          avatar: updateAvatar.urlAvatar,
+        },
+      });
+    },
+  });
+
   const [loading, setLoading] = useState(false);
 
   const onDrop = useCallback(
@@ -19,6 +46,8 @@ function AvatarForm({ setShowModal }) {
         const res = await updateAvatar({ variables: { file } });
 
         const { data } = res;
+
+        console.log(data);
 
         if (!data.updateAvatar.status) {
           toast.warning('Error al actualizar el avatar');

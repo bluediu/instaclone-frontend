@@ -32,7 +32,7 @@ function Profile({ username }) {
       case 'avatar':
         setTitleModal('Cambiar foto del perfil');
         setClidrenModal(
-          <AvatarForm setShowModal={setShowModal} />
+          <AvatarForm setShowModal={setShowModal} auth={auth} />
         );
         setShowModal(true);
         break;
@@ -47,7 +47,7 @@ function Profile({ username }) {
       <Grid className="profile">
         <Grid.Column width={5} className="profile__left">
           <Image
-            src={ImageNotFound}
+            src={getUser.avatar ? getUser.avatar : ImageNotFound}
             avatar
             onClick={() =>
               username === auth.username && handleModal('avatar')
