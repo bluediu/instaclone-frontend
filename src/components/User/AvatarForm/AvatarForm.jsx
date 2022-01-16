@@ -28,8 +28,10 @@ function AvatarForm({ setShowModal, auth }) {
           username: auth.username,
         },
         data: {
-          ...getUser,
-          avatar: updateAvatar.urlAvatar,
+          getUser: {
+            ...getUser,
+            avatar: updateAvatar.urlAvatar,
+          },
         },
       });
     },

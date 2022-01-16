@@ -11,6 +11,9 @@ import UserNotFound from '../../UserNotFound';
 import AvatarForm from '../AvatarForm';
 
 function Profile({ username }) {
+  /* Image path */
+  let avatarImg = 'http://localhost:4000/upload/avatar/';
+
   const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState('');
   const [clidrenModal, setClidrenModal] = useState(null);
@@ -48,7 +51,11 @@ function Profile({ username }) {
       <Grid className="profile">
         <Grid.Column width={5} className="profile__left">
           <Image
-            src={getUser.avatar ? getUser.avatar : ImageNotFound}
+            src={
+              getUser.avatar
+                ? `${avatarImg}${getUser.avatar}`
+                : ImageNotFound
+            }
             avatar
             onClick={() =>
               username === auth.username && handleModal('avatar')
