@@ -9,6 +9,8 @@ import ImageNotFound from '../../../assets/avatar.png';
 import ModalBasic from '../../Modal/ModalBasic';
 import UserNotFound from '../../UserNotFound';
 import AvatarForm from '../AvatarForm';
+import HeaderProfile from './HeaderProfile';
+import SettingForm from '../SettingForm/SettingForm';
 
 function Profile({ username }) {
   const [showModal, setShowModal] = useState(false);
@@ -38,6 +40,14 @@ function Profile({ username }) {
         setShowModal(true);
         break;
 
+      case 'settings':
+        setTitleModal('');
+        setClidrenModal(
+          <SettingForm setShowModal={setShowModal} />
+        );
+        setShowModal(true);
+        break;
+
       default:
         break;
     }
@@ -60,7 +70,12 @@ function Profile({ username }) {
           />
         </Grid.Column>
         <Grid.Column width={11} className="profile__right">
-          <div>Header</div>
+          <HeaderProfile
+            username={username}
+            auth={auth}
+            handleModal={handleModal}
+          />
+
           <div>Followers</div>
           <div className="other">
             <p className="name">{getUser.name}</p>
