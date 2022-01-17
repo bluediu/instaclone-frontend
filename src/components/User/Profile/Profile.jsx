@@ -11,9 +11,6 @@ import UserNotFound from '../../UserNotFound';
 import AvatarForm from '../AvatarForm';
 
 function Profile({ username }) {
-  /* Image path */
-  let avatarImg = 'http://localhost:4000/upload/avatar/';
-
   const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState('');
   const [clidrenModal, setClidrenModal] = useState(null);
@@ -53,7 +50,7 @@ function Profile({ username }) {
           <Image
             src={
               getUser.avatar
-                ? `${avatarImg}${getUser.avatar}`
+                ? `${process.env.REACT_APP_IMAGEURL}${getUser.avatar}`
                 : ImageNotFound
             }
             avatar

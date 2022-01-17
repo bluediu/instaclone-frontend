@@ -3,7 +3,11 @@ import { Button } from 'semantic-ui-react';
 import { useDropzone } from 'react-dropzone';
 import { useCallback, useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { UPDATE_AVATAR, GET_USER } from '../../../gql/user';
+import {
+  UPDATE_AVATAR,
+  GET_USER,
+  DELETE_AVATAR,
+} from '../../../gql/user';
 import { toast } from 'react-toastify';
 
 function AvatarForm({ setShowModal, auth }) {
@@ -39,6 +43,23 @@ function AvatarForm({ setShowModal, auth }) {
 
   const [loading, setLoading] = useState(false);
 
+  const [deleteAvatar] = useMutation(DELETE_AVATAR, {
+    update(cache) {
+      const { getUser } = cache.readQuery({
+        query: GET_USER,
+        variables: { username: auth.username },
+      });
+
+      cache.writeQuery({
+        query: GET_USER,
+        variables: { username: auth.username },
+        data: {
+          getUser: { ...getUser, avatar: '' },
+        },
+      });
+    },
+  });
+
   const onDrop = useCallback(
     async (aceptedFile) => {
       const file = aceptedFile[0];
@@ -70,12 +91,29 @@ function AvatarForm({ setShowModal, auth }) {
     onDrop,
   });
 
+  const onDeleteAvatar = async () => {
+    try {
+      const result = await deleteAvatar();
+      const { data } = result;
+
+      if (!data.deleteAvatar) {
+        toast.warning('Error al eliminar el avatar');
+      } else {
+        setShowModal(false);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="avatar-form">
       <Button loading={loading} {...getRootProps()}>
         Cargar una foto
       </Button>
-      <Button>Eliminar foto actual</Button>
+      <Button onClick={() => onDeleteAvatar()}>
+        Eliminar foto actual
+      </Button>
       <Button onClick={() => setShowModal(false)}>
         Cancelar
       </Button>

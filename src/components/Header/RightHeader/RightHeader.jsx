@@ -7,8 +7,6 @@ import { Link } from 'react-router-dom';
 import ImageNotFound from '../../../assets/avatar.png';
 
 function RightHeader() {
-  /* Image path */
-  let avatarImg = 'http://localhost:4000/upload/avatar/';
   const { auth } = useAuth();
   const { data, loading, error } = useQuery(GET_USER, {
     variables: {
@@ -31,7 +29,7 @@ function RightHeader() {
           <Image
             src={
               getUser.avatar
-                ? `${avatarImg}${getUser.avatar}`
+                ? `${process.env.REACT_APP_IMAGEURL}${getUser.avatar}`
                 : ImageNotFound
             }
             avatar
