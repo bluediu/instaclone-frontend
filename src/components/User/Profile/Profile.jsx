@@ -43,7 +43,11 @@ function Profile({ username }) {
       case 'settings':
         setTitleModal('');
         setClidrenModal(
-          <SettingForm setShowModal={setShowModal} />
+          <SettingForm
+            setShowModal={setShowModal}
+            setTitleModal={setTitleModal}
+            setClidrenModal={setClidrenModal}
+          />
         );
         setShowModal(true);
         break;

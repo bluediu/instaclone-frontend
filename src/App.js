@@ -1,5 +1,9 @@
 import { ApolloProvider } from '@apollo/client';
-import { decodeToken, getToken } from './utils/token';
+import {
+  decodeToken,
+  getToken,
+  removeToken,
+} from './utils/token';
 import { ToastContainer } from 'react-toastify';
 import { useEffect, useState, useMemo } from 'react';
 import Auth from './pages/Auth';
@@ -21,7 +25,8 @@ function App() {
   }, []);
 
   const logout = () => {
-    console.log('Cerar');
+    removeToken();
+    setAuth(null);
   };
 
   const setUser = (user) => {

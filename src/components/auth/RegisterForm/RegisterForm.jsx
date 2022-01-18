@@ -16,7 +16,7 @@ const RegisterForm = ({ setShowLogin }) => {
       username: Yup.string()
         .matches(
           /^[a-zA-Z0-9-]*$/,
-          'El nombre de usuario no puede tener espacios en blanco '
+          'El nombre de usuario no puede tener espacios en blanco'
         )
         .required('El nombre de usuario es obligatorio'),
       email: Yup.string()
