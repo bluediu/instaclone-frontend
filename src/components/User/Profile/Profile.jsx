@@ -17,7 +17,7 @@ function Profile({ username }) {
   const [titleModal, setTitleModal] = useState('');
   const [clidrenModal, setClidrenModal] = useState(null);
   const { auth } = useAuth();
-  const { data, loading, error } = useQuery(GET_USER, {
+  const { data, loading, error, refetch } = useQuery(GET_USER, {
     variables: {
       username,
     },
@@ -47,6 +47,8 @@ function Profile({ username }) {
             setShowModal={setShowModal}
             setTitleModal={setTitleModal}
             setClidrenModal={setClidrenModal}
+            getUser={getUser}
+            refetch={refetch}
           />
         );
         setShowModal(true);
