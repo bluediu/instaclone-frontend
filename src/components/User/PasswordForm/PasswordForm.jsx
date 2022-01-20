@@ -1,10 +1,15 @@
 import React from 'react';
 import { Form, Button } from 'semantic-ui-react';
 import { useFormik } from 'formik';
+import { useMutation } from '@apollo/client';
+import { UPDATE_USER } from '../../../gql/user';
+import { toast } from 'react-toastify';
 import * as Yup from 'yup';
 import './PasswordForm.scss';
 
-function PasswordForm() {
+function PasswordForm({ logout }) {
+  const [updateUser] = useMutation(UPDATE_USER);
+
   const formik = useFormik({
     initialValues: initialValues(),
     validationSchema: Yup.object({
@@ -16,8 +21,25 @@ function PasswordForm() {
         .required()
         .oneOf([Yup.ref('newPassword')]),
     }),
-    onSubmit: (formData) => {
-      console.log(formData);
+    onSubmit: async (formData) => {
+      try {
+        const result = await updateUser({
+          variables: {
+            input: {
+              currentPassword: formData.currentPassword,
+              newPassword: formData.newPassword,
+            },
+          },
+        });
+
+        if (!result.data.updateUser) {
+          toast.error('Error al cambiar la contraseña');
+        } else {
+          logout();
+        }
+      } catch (error) {
+        toast.error('Error al cambiar la contraseña');
+      }
     },
   });
 

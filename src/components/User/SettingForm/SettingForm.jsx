@@ -17,7 +17,7 @@ function SettingForm({
 
   const onChangePassword = () => {
     setTitleModal('Cambia tú contraseña');
-    setClidrenModal(<PasswordForm />);
+    setClidrenModal(<PasswordForm logout={onLogout} />);
   };
 
   const onLogout = () => {
