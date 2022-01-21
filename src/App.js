@@ -20,7 +20,19 @@ function App() {
     if (!token) {
       setAuth(null);
     } else {
-      setAuth(decodeToken(token));
+      /* Decode token */
+      const validateToken = decodeToken(token) || '';
+
+      /* Check If current date is greater than expiry date of token  */
+      if (Date.now() >= validateToken?.exp * 1000) {
+        // Token has expired
+        logout();
+        setAuth(null);
+      } else {
+        // Token is valid
+        setAuth(validateToken);
+      }
+      //setAuth(decodeToken(token));
     }
   }, []);
 
