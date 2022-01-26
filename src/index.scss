@@ -17,3 +17,15 @@ body {
     margin: 20px 0 0 0;
   }
 }
+
+.ui.button.btn-action {
+  background-color: $action !important;
+  color: $font-light !important;
+  border-color: $action !important;
+}
+
+.ui.button.btn-danger {
+  background-color: $danger !important;
+  color: $font-light !important;
+  border-color: $danger !important;
+}
