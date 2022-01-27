@@ -11,6 +11,7 @@ import UserNotFound from '../../UserNotFound';
 import AvatarForm from '../AvatarForm';
 import HeaderProfile from './HeaderProfile';
 import SettingForm from '../SettingForm/SettingForm';
+import Followers from './Followers';
 
 function Profile({ username }) {
   const [showModal, setShowModal] = useState(false);
@@ -82,7 +83,8 @@ function Profile({ username }) {
             handleModal={handleModal}
           />
 
-          <div>Followers</div>
+          <Followers username={username} />
+
           <div className="other">
             <p className="name">{getUser.name}</p>
             {getUser.webSite && (
