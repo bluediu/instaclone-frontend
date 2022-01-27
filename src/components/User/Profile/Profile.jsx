@@ -1,6 +1,5 @@
 import './Profile.scss';
-
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 import { useQuery } from '@apollo/client';
 import { GET_USER } from '../../../gql/user';
@@ -23,6 +22,10 @@ function Profile({ username }) {
       username,
     },
   });
+
+  useEffect(() => {
+    document.title = ` ${data?.getUser?.name} (@${data?.getUser?.username}) - Instaclone fotos`;
+  }, [data]);
 
   if (loading) return null;
 

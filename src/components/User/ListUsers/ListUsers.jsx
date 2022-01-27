@@ -2,9 +2,17 @@ import React from 'react';
 import { size, map } from 'lodash';
 import { Image } from 'semantic-ui-react';
 import ImageNotFound from '../../../assets/avatar.png';
+import { useHistory } from 'react-router-dom';
 import './ListUsers.scss';
 
 function ListUsers({ users, setShowModal }) {
+  const history = useHistory();
+
+  const goToUser = (username) => {
+    setShowModal(false);
+    history.push(`/${username}`);
+  };
+
   return (
     <div className="list-users">
       {size(users) === 0 ? (
@@ -13,7 +21,11 @@ function ListUsers({ users, setShowModal }) {
         </p>
       ) : (
         map(users, (user, index) => (
-          <div key={index} className="list-users__users">
+          <div
+            key={index}
+            className="list-users__users"
+            onClick={() => goToUser(user.username)}
+          >
             <Image
               src={
                 `${process.env.REACT_APP_IMAGEURL}${user.avatar}` ||

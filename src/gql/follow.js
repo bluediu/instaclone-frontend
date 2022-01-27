@@ -27,3 +27,13 @@ export const GET_FOLLOWERS = gql`
     }
   }
 `;
+
+export const GET_FOLLOWING = gql`
+  query getFollowing($username: String!) {
+    getFollowing(username: $username) {
+      username
+      avatar
+      name
+    }
+  }
+`;

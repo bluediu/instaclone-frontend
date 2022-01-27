@@ -1,8 +1,13 @@
 import './Home.scss';
 import useAuth from '../../hooks/useAuth';
+import { useEffect } from 'react';
 
 function Home() {
   const auth = useAuth();
+
+  useEffect(() => {
+    document.title = 'Instaclone';
+  }, []);
 
   return (
     <div>
