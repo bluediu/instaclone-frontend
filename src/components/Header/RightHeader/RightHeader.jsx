@@ -5,6 +5,8 @@ import { useQuery } from '@apollo/client';
 import { GET_USER } from '../../../gql/user';
 import { Link } from 'react-router-dom';
 import ImageNotFound from '../../../assets/avatar.png';
+import ModalUpload from '../../Modal/ModalUpload';
+import { useState } from 'react';
 
 function RightHeader() {
   const { auth } = useAuth();
@@ -13,6 +15,7 @@ function RightHeader() {
       username: auth.username,
     },
   });
+  const [showModal, setShowModal] = useState(false);
 
   if (loading || error) return null;
 
@@ -24,7 +27,7 @@ function RightHeader() {
         <Link to="/">
           <Icon name="home" />
         </Link>
-        <Icon name="plus" />
+        <Icon name="plus" onClick={() => setShowModal(true)} />
         <Link to={`/${auth.username}`}>
           <Image
             src={
@@ -36,6 +39,7 @@ function RightHeader() {
           />
         </Link>
       </div>
+      <ModalUpload show={showModal} setShow={setShowModal} />
     </>
   );
 }
