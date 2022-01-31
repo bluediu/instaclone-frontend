@@ -33,6 +33,10 @@ function ModalUpload({ show, setShow }) {
     setShow(false);
   };
 
+  const onPublish = () => {
+    console.log('publicando');
+  };
+
   return (
     <Modal
       size="small"
@@ -62,6 +66,15 @@ function ModalUpload({ show, setShow }) {
             backgroundImage: `url("${fileUpload.preview}")`,
           }}
         />
+      )}
+
+      {fileUpload && (
+        <Button
+          className="btn-upload btn-action"
+          onClick={onPublish}
+        >
+          Publicar
+        </Button>
       )}
     </Modal>
   );
