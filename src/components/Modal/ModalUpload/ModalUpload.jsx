@@ -7,10 +7,17 @@ import {
   Loader,
 } from 'semantic-ui-react';
 import { useDropzone } from 'react-dropzone';
+import { useMutation } from '@apollo/client';
+import { PUBLISH } from '../../../gql/publication';
+import { toast } from 'react-toastify';
 import './ModalUpload.scss';
 
 function ModalUpload({ show, setShow }) {
   const [fileUpload, setFileUpload] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Apollo
+  const [publish] = useMutation(PUBLISH);
 
   const onDrop = useCallback((acceptedFile) => {
     const file = acceptedFile[0];
@@ -30,11 +37,30 @@ function ModalUpload({ show, setShow }) {
   });
 
   const onClose = () => {
+    setFileUpload(null);
+    setIsLoading(false);
     setShow(false);
   };
 
-  const onPublish = () => {
-    console.log('publicando');
+  const onPublish = async () => {
+    try {
+      setIsLoading(true);
+      const { data } = await publish({
+        variables: {
+          file: fileUpload.file,
+        },
+      });
+
+      console.log(data);
+      if (!data.publish.status) {
+        toast.warning('Error al publicar');
+        isLoading(false);
+      } else {
+        onClose();
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -75,6 +101,13 @@ function ModalUpload({ show, setShow }) {
         >
           Publicar
         </Button>
+      )}
+
+      {isLoading && (
+        <Dimmer active className="publishing">
+          <Loader />
+          <p>publicando...</p>
+        </Dimmer>
       )}
     </Modal>
   );
