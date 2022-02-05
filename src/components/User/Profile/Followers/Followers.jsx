@@ -9,7 +9,7 @@ import ListUsers from '../../ListUsers';
 import ModalBasic from '../../../Modal/ModalBasic';
 import './Followers.scss';
 
-function Followers({ username }) {
+function Followers({ username, totalPublications }) {
   const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState('');
   const [childrenModal, setChildrenModal] = useState(null);
@@ -74,7 +74,7 @@ function Followers({ username }) {
     <>
       <div className="followers">
         <p>
-          <span>50</span> publicaciones
+          <span>{totalPublications}</span> publicaciones
         </p>
         <p className="link" onClick={openFollowers}>
           <span>{size(getFollowers)}</span> seguidores

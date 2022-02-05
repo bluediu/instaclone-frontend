@@ -12,7 +12,7 @@ import HeaderProfile from './HeaderProfile';
 import SettingForm from '../SettingForm/SettingForm';
 import Followers from './Followers';
 
-function Profile({ username }) {
+function Profile({ username, totalPublications }) {
   const [showModal, setShowModal] = useState(false);
   const [titleModal, setTitleModal] = useState('');
   const [clidrenModal, setClidrenModal] = useState(null);
@@ -86,7 +86,10 @@ function Profile({ username }) {
             handleModal={handleModal}
           />
 
-          <Followers username={username} />
+          <Followers
+            username={username}
+            totalPublications={totalPublications}
+          />
 
           <div className="other">
             <p className="name">{getUser.name}</p>
