@@ -14,7 +14,7 @@ function AvatarForm({ setShowModal, auth }) {
   const [updateAvatar] = useMutation(UPDATE_AVATAR, {
     update(cache, { data: { updateAvatar } }) {
       /* 
-      Read the query that has been previously consumed in Profile compornent saved in Cache
+      Read the query that has been previously consumed in Profile component saved in Cache
       */
       const { getUser } = cache.readQuery({
         query: GET_USER,
