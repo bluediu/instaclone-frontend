@@ -3,9 +3,15 @@ import { Modal, Grid } from 'semantic-ui-react';
 import Comments from './Comments';
 import CommentForm from './CommentForm/CommentForm';
 import './ModalPublication.scss';
+import { GET_COMMENTS } from '../../../gql/comment';
+import { useQuery } from '@apollo/client';
 
 function ModalPublication({ show, setShow, publication }) {
   const onClose = () => setShow(false);
+
+  const { data, loading, refetch } = useQuery(GET_COMMENTS, {
+    variables: { idPublication: publication.id },
+  });
 
   return (
     <Modal
@@ -26,9 +32,12 @@ function ModalPublication({ show, setShow, publication }) {
           className="modal-publication__right"
           width={6}
         >
-          <Comments publication={publication} />
+          <Comments data={data} loading={loading} />
           <div>Acciones</div>
-          <CommentForm publication={publication} />
+          <CommentForm
+            publication={publication}
+            refetch={refetch}
+          />
         </Grid.Column>
       </Grid>
     </Modal>

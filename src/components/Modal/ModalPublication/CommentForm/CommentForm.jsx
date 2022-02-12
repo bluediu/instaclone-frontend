@@ -6,7 +6,7 @@ import './CommentForm.scss';
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../../../../gql/comment';
 
-function CommentForm({ publication }) {
+function CommentForm({ publication, refetch }) {
   const [addComment] = useMutation(ADD_COMMENT);
 
   const formik = useFormik({
@@ -26,6 +26,7 @@ function CommentForm({ publication }) {
         });
 
         formik.handleReset();
+        refetch();
       } catch (error) {
         console.error(error);
       }
