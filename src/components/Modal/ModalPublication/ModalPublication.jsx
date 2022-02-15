@@ -5,10 +5,14 @@ import CommentForm from './CommentForm/CommentForm';
 import './ModalPublication.scss';
 import { GET_COMMENTS } from '../../../gql/comment';
 import { useQuery } from '@apollo/client';
+import Actions from './Actions';
 
 function ModalPublication({ show, setShow, publication }) {
   const onClose = () => setShow(false);
 
+  /*
+   TODO: You can make the query in comment component and use polling, but it is not efficient that server maintain several petition like: profile, followers and publications for example 
+  */
   const { data, loading, refetch } = useQuery(GET_COMMENTS, {
     variables: { idPublication: publication.id },
   });
@@ -33,7 +37,7 @@ function ModalPublication({ show, setShow, publication }) {
           width={6}
         >
           <Comments data={data} loading={loading} />
-          <div>Acciones</div>
+          <Actions publication={publication} />
           <CommentForm
             publication={publication}
             refetch={refetch}

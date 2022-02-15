@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Image } from 'semantic-ui-react';
 import { map } from 'lodash';
 import { Link } from 'react-router-dom';
