@@ -5,6 +5,7 @@ import { size } from 'lodash';
 import { GET_PUBLICATIONS } from '../gql/publication';
 import Publications from '../components/Publications';
 import { useEffect } from 'react';
+import FeedLoader from '../components/Home/Feed/FeedLoader/FeedLoader';
 
 function User() {
   const { username } = useParams();
@@ -21,7 +22,12 @@ function User() {
   }, [startPolling, stopPolling]);
 
   if (loading) {
-    return null;
+    return (
+      <div className="publications-spinner">
+        <FeedLoader />
+        <span>Obtenido publicaciones...</span>
+      </div>
+    );
   }
 
   const { getPublications } = data;

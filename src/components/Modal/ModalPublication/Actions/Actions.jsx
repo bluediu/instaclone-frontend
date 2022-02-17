@@ -19,6 +19,7 @@ function Actions({ publication }) {
   const { data, loading, refetch } = useQuery(IS_LIKE, {
     variables: { idPublication: publication.id },
   });
+  
   const {
     data: dataCount,
     loading: loadingCount,

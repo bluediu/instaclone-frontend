@@ -1,18 +1,22 @@
 import './Home.scss';
-import useAuth from '../../hooks/useAuth';
 import { useEffect } from 'react';
+import { Grid } from 'semantic-ui-react';
+import Feed from '../../components/Home/Feed';
 
 function Home() {
-  const auth = useAuth();
-
   useEffect(() => {
     document.title = 'Instaclone';
   }, []);
 
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <Grid className="home">
+      <Grid.Column className="home__left" width={11}>
+        <Feed />
+      </Grid.Column>
+      <Grid.Column className="home__right" width={5}>
+        <h2>NO SEGUIDO</h2>
+      </Grid.Column>
+    </Grid>
   );
 }
 

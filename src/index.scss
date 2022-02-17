@@ -29,3 +29,16 @@ body {
   color: $font-light !important;
   border-color: $danger !important;
 }
+
+.publications-spinner {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    padding-top: 20px;
+    color: $font-grey;
+  }
+}
