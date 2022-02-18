@@ -1,0 +1,21 @@
+@import '../../../scss/index.scss';
+
+.users-not-following {
+  display: flex;
+  position: fixed;
+  flex-direction: column;
+  margin-top: 35px;
+
+  h3 {
+    color: $font-grey;
+  }
+
+  &__user {
+    margin-top: 20px;
+    color: $font-dark;
+
+    img {
+      margin-right: 15px !important;
+    }
+  }
+}

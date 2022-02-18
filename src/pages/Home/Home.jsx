@@ -2,6 +2,7 @@ import './Home.scss';
 import { useEffect } from 'react';
 import { Grid } from 'semantic-ui-react';
 import Feed from '../../components/Home/Feed';
+import UserNotFollowing from '../../components/Home/UserNotFollowing';
 
 function Home() {
   useEffect(() => {
@@ -14,7 +15,7 @@ function Home() {
         <Feed />
       </Grid.Column>
       <Grid.Column className="home__right" width={5}>
-        <h2>NO SEGUIDO</h2>
+        <UserNotFollowing />
       </Grid.Column>
     </Grid>
   );
