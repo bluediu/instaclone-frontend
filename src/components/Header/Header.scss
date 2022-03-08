@@ -16,3 +16,18 @@
     }
   }
 }
+
+@media screen and (max-width: 988px) {
+  .mobile-center_logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .right-header > * {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}

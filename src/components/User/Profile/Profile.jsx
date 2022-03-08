@@ -17,6 +17,7 @@ function Profile({ username, totalPublications }) {
   const [titleModal, setTitleModal] = useState('');
   const [clidrenModal, setClidrenModal] = useState(null);
   const { auth } = useAuth();
+
   const { data, loading, error, refetch } = useQuery(GET_USER, {
     variables: {
       username,
@@ -66,7 +67,11 @@ function Profile({ username, totalPublications }) {
   return (
     <>
       <Grid className="profile">
-        <Grid.Column width={5} className="profile__left">
+        <Grid.Column
+          computer={5}
+          mobile={16}
+          className="profile__left"
+        >
           <Image
             src={
               getUser.avatar
@@ -79,7 +84,11 @@ function Profile({ username, totalPublications }) {
             }
           />
         </Grid.Column>
-        <Grid.Column width={11} className="profile__right">
+        <Grid.Column
+          computer={11}
+          mobile={16}
+          className="profile__right"
+        >
           <HeaderProfile
             username={username}
             auth={auth}

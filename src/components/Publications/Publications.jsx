@@ -10,7 +10,12 @@ function Publications({ getPublications }) {
       <h1>Publicaciones</h1>
       <Grid columns={4}>
         {map(getPublications, (publication, index) => (
-          <Grid.Column key={index}>
+          <Grid.Column
+            key={index}
+            computer={4}
+            mobile={16}
+            tablet={8}
+          >
             <PreviewPublications publication={publication} />
           </Grid.Column>
         ))}

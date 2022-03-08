@@ -6,6 +6,10 @@
   flex-direction: column;
   margin-top: 35px;
 
+  @media screen and (max-width: 988px) {
+    display: none;
+  }
+
   h3 {
     color: $font-grey;
   }

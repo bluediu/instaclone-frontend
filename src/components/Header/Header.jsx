@@ -10,17 +10,21 @@ function Header() {
     <div className="header">
       <Container>
         <Grid>
-          <Grid.Column width={3} className="header__logo">
+          <Grid.Column
+            computer={3}
+            mobile={16}
+            className="header__logo mobile-center_logo"
+          >
             <Link to="/">
               <Image src={Logo} alt="instaclone" />
             </Link>
           </Grid.Column>
 
-          <Grid.Column width={10}>
+          <Grid.Column computer={10} mobile={16}>
             <Search />
           </Grid.Column>
 
-          <Grid.Column width={3}>
+          <Grid.Column computer={3} mobile={16}>
             <RightHeader />
           </Grid.Column>
         </Grid>

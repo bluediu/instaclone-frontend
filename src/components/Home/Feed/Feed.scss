@@ -6,6 +6,10 @@
   overflow-y: scroll;
   width: 90%;
 
+  @media screen and (max-width: 988px) {
+    width: 100%;
+  }
+
   &::-webkit-scrollbar {
     display: none;
   }
@@ -37,6 +41,10 @@
       &:hover {
         cursor: pointer;
         opacity: 0.95;
+      }
+
+      @media screen and (max-width: 988px) {
+        height: 300px;
       }
     }
 

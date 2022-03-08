@@ -9,12 +9,19 @@ function Home() {
     document.title = 'Instaclone';
   }, []);
 
+  /* 11  y 5
+  
+  */
   return (
     <Grid className="home">
-      <Grid.Column className="home__left" width={11}>
+      <Grid.Column
+        className="home__left"
+        computer={11}
+        mobile={16}
+      >
         <Feed />
       </Grid.Column>
-      <Grid.Column className="home__right" width={5}>
+      <Grid.Column className="home__right" computer={5}>
         <UserNotFollowing />
       </Grid.Column>
     </Grid>
