@@ -75,6 +75,13 @@ function Feed() {
         ))}
       </div>
 
+      {getPublicationsFollowing.length === 0 && (
+        <h3 className="there-are-not">
+          Comienza a seguir a tus amigos para ver sus
+          publicaciones
+        </h3>
+      )}
+
       {showModal && (
         <ModalPublication
           show={showModal}

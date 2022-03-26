@@ -20,6 +20,12 @@ function Publications({ getPublications }) {
           </Grid.Column>
         ))}
       </Grid>
+
+      {getPublications.length === 0 && (
+        <h3 className="there-are-not">
+          Este perfil aún no tiene publicaciones
+        </h3>
+      )}
     </div>
   );
 }
