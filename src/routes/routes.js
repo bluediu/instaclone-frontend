@@ -3,11 +3,6 @@ import { lazy } from 'react';
 import LayoutBasic from '../layouts/LayoutBasic';
 
 // Pages
-/* import Home from '../pages/Home';
-import User from '../pages/User';
-import Error404 from '../pages/Error404'; */
-
-// Pages
 const Home = lazy(() => import('../pages/Home'));
 const User = lazy(() => import('../pages/User'));
 const Error404 = lazy(() => import('../pages/Error404'));
