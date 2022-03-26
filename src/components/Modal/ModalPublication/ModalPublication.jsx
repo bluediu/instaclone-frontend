@@ -1,13 +1,18 @@
-import React from 'react';
-import { Modal, Grid } from 'semantic-ui-react';
-import Comments from './Comments';
-import CommentForm from './CommentForm/CommentForm';
-import './ModalPublication.scss';
-import { GET_COMMENTS } from '../../../gql/comment';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
-import Actions from './Actions';
+import { GET_COMMENTS } from '../../../gql/comment';
+
+import { Modal } from 'semantic-ui-react';
+import ModalPublicationMobile from './ModalPublicationMobile';
+import ModalPublicationDesktop from './ModalPublicationDesktop';
+import './ModalPublication.scss';
+
+import { useWindowSize } from 'react-use';
 
 function ModalPublication({ show, setShow, publication }) {
+  const { width } = useWindowSize();
+  const [showDesktop, setShowDesktop] = useState(true);
+
   const onClose = () => setShow(false);
 
   /*
@@ -17,33 +22,35 @@ function ModalPublication({ show, setShow, publication }) {
     variables: { idPublication: publication.id },
   });
 
+  useEffect(() => {
+    if (width <= 532) {
+      setShowDesktop(false);
+    } else {
+      setShowDesktop(true);
+    }
+  }, [width]);
+
   return (
     <Modal
       open={show}
       onClose={onClose}
       className="modal-publication"
     >
-      <Grid>
-        <Grid.Column
-          className="modal-publication__left"
-          width={10}
-          style={{
-            backgroundImage: `url("${process.env.REACT_APP_IMAGEURLFILE}${publication.file}")`,
-          }}
+      {showDesktop ? (
+        <ModalPublicationDesktop
+          publication={publication}
+          data={data}
+          loading={loading}
+          refetch={refetch}
         />
-
-        <Grid.Column
-          className="modal-publication__right"
-          width={6}
-        >
-          <Comments data={data} loading={loading} />
-          <Actions publication={publication} />
-          <CommentForm
-            publication={publication}
-            refetch={refetch}
-          />
-        </Grid.Column>
-      </Grid>
+      ) : (
+        <ModalPublicationMobile
+          publication={publication}
+          data={data}
+          loading={loading}
+          refetch={refetch}
+        />
+      )}
     </Modal>
   );
 }
