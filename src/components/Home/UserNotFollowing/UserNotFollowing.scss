@@ -2,7 +2,8 @@
 
 .users-not-following {
   display: flex;
-  position: fixed;
+  position: sticky;
+  top: 80px;
   flex-direction: column;
   margin-top: 35px;
 
