@@ -70,13 +70,7 @@ function ResultSearch({ data }) {
       className="search-users__item"
       to={`/${data.username}`}
     >
-      <Image
-        src={
-          data.avatar
-            ? `${process.env.REACT_APP_IMAGEURL}${data.avatar}`
-            : ImageNotFound
-        }
-      />
+      <Image src={data.avatar ? data.avatar : ImageNotFound} />
       <div>
         <p>{data.title}</p>
         <p>{data.username}</p>

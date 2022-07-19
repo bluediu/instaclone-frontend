@@ -73,11 +73,7 @@ function Profile({ username, totalPublications }) {
           className="profile__left"
         >
           <Image
-            src={
-              getUser.avatar
-                ? `${getUser.avatar}`
-                : ImageNotFound
-            }
+            src={getUser.avatar ? getUser.avatar : ImageNotFound}
             avatar
             onClick={() =>
               username === auth.username && handleModal('avatar')

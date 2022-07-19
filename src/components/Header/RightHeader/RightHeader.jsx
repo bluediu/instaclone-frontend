@@ -30,11 +30,7 @@ function RightHeader() {
         <Icon name="plus" onClick={() => setShowModal(true)} />
         <Link to={`/${auth.username}`}>
           <Image
-            src={
-              getUser.avatar
-                ? `${getUser.avatar}`
-                : ImageNotFound
-            }
+            src={getUser.avatar ? getUser.avatar : ImageNotFound}
             avatar
           />
         </Link>

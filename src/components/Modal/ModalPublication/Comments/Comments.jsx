@@ -19,7 +19,7 @@ function Comments({ data, loading }) {
           className="comment"
         >
           <Image
-            src={`${process.env.REACT_APP_IMAGEURL}${comment.idUser.avatar}`}
+            src={comment.idUser.avatar}
             onError={(e) => {
               e.target.src = ImageNotFound;
             }}

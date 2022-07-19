@@ -51,7 +51,6 @@ function ModalUpload({ show, setShow }) {
         },
       });
 
-      console.log(data);
       if (!data.publish.status) {
         toast.warning('Error al publicar');
         isLoading(false);
