@@ -20,11 +20,7 @@ function UserProfile() {
   return (
     <section className="user__profile">
       <div className="user__profile-info">
-        <Image
-          src={`${process.env.REACT_APP_IMAGEURL}${avatar}`}
-          alt="profile"
-          avatar
-        />
+        <Image src={avatar} alt="profile" avatar />
 
         <div className="user__profile-info-name">
           <span>{name}</span>

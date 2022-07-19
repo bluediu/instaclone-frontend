@@ -24,7 +24,7 @@ function UserNotFollowing() {
           className="users-not-following__user"
         >
           <Image
-            src={`${process.env.REACT_APP_IMAGEURL}${user.avatar}`}
+            src={user.avatar}
             onError={(e) => {
               e.target.src = ImageNotFound;
             }}

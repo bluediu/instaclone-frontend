@@ -23,7 +23,7 @@ function ModalPublicationDesktop({
         computer={10}
         mobile={16}
         style={{
-          backgroundImage: `url("${process.env.REACT_APP_IMAGEURLFILE}${publication.file}")`,
+          backgroundImage: `url("${publication.file}")`,
           backgroundSize: toggleImageSize ? 'cover' : 'contain',
         }}
         onClick={handleToggleSize}

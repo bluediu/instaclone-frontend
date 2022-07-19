@@ -32,7 +32,7 @@ function RightHeader() {
           <Image
             src={
               getUser.avatar
-                ? `${process.env.REACT_APP_IMAGEURL}${getUser.avatar}`
+                ? `${getUser.avatar}`
                 : ImageNotFound
             }
             avatar

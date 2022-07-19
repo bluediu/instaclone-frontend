@@ -14,10 +14,7 @@ function ModalPublicationMobile({
     <>
       <Grid>
         <Grid.Row>
-          <Image
-            src={`${process.env.REACT_APP_IMAGEURLFILE}${publication.file}`}
-            fluid
-          />
+          <Image src={publication.file} fluid />
         </Grid.Row>
         <Grid.Row>
           <Actions publication={publication} />

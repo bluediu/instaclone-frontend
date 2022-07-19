@@ -61,7 +61,7 @@ function Feed() {
             <div
               className="feed__box-photo"
               style={{
-                backgroundImage: `url("${process.env.REACT_APP_IMAGEURLFILE}${publication.file}")`,
+                backgroundImage: `url("${publication.file}")`,
               }}
               onClick={() => openPublication(publication)}
             />

@@ -12,7 +12,7 @@ function PreviewPublications({ publication }) {
         <Image
           className="preview-publication__image"
           loading="lazy"
-          src={`${process.env.REACT_APP_IMAGEURLFILE}${publication.file}`}
+          src={publication.file}
           onClick={() => setShowModal(true)}
         />
       </div>
