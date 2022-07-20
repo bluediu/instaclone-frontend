@@ -1,10 +1,16 @@
-import { Form, Button } from 'semantic-ui-react';
-import './RegisterForm.scss';
+/* hooks */
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
+
+/* Components */
+import { Form, Button } from 'semantic-ui-react';
+
+/* GraphQL */
 import { REGISTER } from '../../../gql/user';
 import { useMutation } from '@apollo/client';
+
+import './RegisterForm.scss';
 
 const RegisterForm = ({ setShowLogin }) => {
   const [register] = useMutation(REGISTER);

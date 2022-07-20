@@ -1,13 +1,19 @@
+/* hooks */
 import React from 'react';
-import './SettingForm.scss';
-import { Button } from 'semantic-ui-react';
-import { useHistory } from 'react-router-dom';
-import { useApolloClient } from '@apollo/client';
 import useAuth from '../../../hooks/useAuth';
+import { useHistory } from 'react-router-dom';
+
+/* GraphQL */
+import { useApolloClient } from '@apollo/client';
+
+/* Components */
+import { Button } from 'semantic-ui-react';
 import PasswordForm from '../PasswordForm';
 import EmailForm from '../EmailForm/EmailForm';
 import DescriptionForm from '../DescriptionForm/DescriptionForm';
 import WebSiteForm from '../WebSiteForm';
+
+import './SettingForm.scss';
 
 function SettingForm({
   setShowModal,

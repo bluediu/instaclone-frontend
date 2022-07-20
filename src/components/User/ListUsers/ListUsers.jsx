@@ -1,8 +1,12 @@
+/* hooks */
 import React from 'react';
 import { size, map } from 'lodash';
-import { Image } from 'semantic-ui-react';
-import ImageNotFound from '../../../assets/avatar.png';
 import { useHistory } from 'react-router-dom';
+
+/* Components */
+import { Image } from 'semantic-ui-react';
+
+import ImageNotFound from '../../../assets/avatar.png';
 import './ListUsers.scss';
 
 function ListUsers({ users, setShowModal }) {

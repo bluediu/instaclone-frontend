@@ -1,12 +1,18 @@
+/* hooks & libs */
+import { useEffect, useState } from 'react';
+import { size } from 'lodash';
+
+/* Components */
 import {
   Search as SearchSemantic,
   Image,
 } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+
+/* GraphQL */
 import { useQuery } from '@apollo/client';
 import { SEARCH } from '../../../gql/user';
-import { useEffect, useState } from 'react';
-import { size } from 'lodash';
-import { Link } from 'react-router-dom';
+
 import ImageNotFound from '../../../assets/avatar.png';
 import './Search.scss';
 

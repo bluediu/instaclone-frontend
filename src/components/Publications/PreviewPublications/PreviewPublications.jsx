@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import './PreviewPublications.scss';
+
+/* Components */
 import { Image } from 'semantic-ui-react';
 import ModalPublication from '../../Modal/ModalPublication';
+
+import './PreviewPublications.scss';
 
 function PreviewPublications({ publication }) {
   const [showModal, setShowModal] = useState(false);

@@ -1,12 +1,18 @@
-import './RightHeader.scss';
-import { Icon, Image } from 'semantic-ui-react';
-import useAuth from '../../../hooks/useAuth';
-import { useQuery } from '@apollo/client';
-import { GET_USER } from '../../../gql/user';
-import { Link } from 'react-router-dom';
-import ImageNotFound from '../../../assets/avatar.png';
-import ModalUpload from '../../Modal/ModalUpload';
+/* hooks */
 import { useState } from 'react';
+import useAuth from '../../../hooks/useAuth';
+
+/* GraphQL */
+import { GET_USER } from '../../../gql/user';
+import { useQuery } from '@apollo/client';
+
+/* Components */
+import { Link } from 'react-router-dom';
+import { Icon, Image } from 'semantic-ui-react';
+import ModalUpload from '../../Modal/ModalUpload';
+
+import ImageNotFound from '../../../assets/avatar.png';
+import './RightHeader.scss';
 
 function RightHeader() {
   const { auth } = useAuth();

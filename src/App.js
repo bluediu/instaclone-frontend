@@ -1,15 +1,19 @@
+/* GraphQL */
 import { ApolloProvider } from '@apollo/client';
+
+/* utils */
 import {
   decodeToken,
   getToken,
   removeToken,
 } from './utils/token';
+
 import { ToastContainer } from 'react-toastify';
 import { useEffect, useState, useMemo } from 'react';
-import Auth from './pages/Auth';
 import AuthContext from './context/AuthContext';
 import client from './config/apollo';
 import Navigation from './routes/Navigation';
+import Auth from './pages/Auth';
 
 function App() {
   const [auth, setAuth] = useState(undefined);

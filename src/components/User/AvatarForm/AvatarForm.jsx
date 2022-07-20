@@ -1,14 +1,20 @@
-import './AvatarForm.scss';
-import { Button } from 'semantic-ui-react';
+/* hooks */
 import { useDropzone } from 'react-dropzone';
 import { useCallback, useState } from 'react';
+import { toast } from 'react-toastify';
+
+/* Components */
+import { Button } from 'semantic-ui-react';
+
+/* GraphQL */
 import { useMutation } from '@apollo/client';
 import {
   UPDATE_AVATAR,
   GET_USER,
   DELETE_AVATAR,
 } from '../../../gql/user';
-import { toast } from 'react-toastify';
+
+import './AvatarForm.scss';
 
 function AvatarForm({ setShowModal, auth }) {
   const [updateAvatar] = useMutation(UPDATE_AVATAR, {

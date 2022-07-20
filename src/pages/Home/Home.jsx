@@ -1,9 +1,12 @@
-import './Home.scss';
 import { useEffect } from 'react';
+
+/* Components */
 import { Grid } from 'semantic-ui-react';
-import Feed from '../../components/Home/Feed';
 import UserNotFollowing from '../../components/Home/UserNotFollowing';
+import Feed from '../../components/Home/Feed';
+
 import UserProfile from '../../components/Home/UserProfile';
+import './Home.scss';
 
 function Home() {
   useEffect(() => {

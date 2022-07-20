@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { useQuery } from '@apollo/client';
-import { GET_COMMENTS } from '../../../gql/comment';
 
+/* Components */
 import { Modal } from 'semantic-ui-react';
 import ModalPublicationMobile from './ModalPublicationMobile';
 import ModalPublicationDesktop from './ModalPublicationDesktop';
+
+/* GraphQL */
+import { useQuery } from '@apollo/client';
+import { GET_COMMENTS } from '../../../gql/comment';
+
 import './ModalPublication.scss';
 
 import { useWindowSize } from 'react-use';

@@ -1,10 +1,16 @@
+/* hooks */
 import React from 'react';
-import { Form, Button } from 'semantic-ui-react';
 import { toast } from 'react-toastify';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+
+/* Components */
+import { Form, Button } from 'semantic-ui-react';
+
+/* GraphQL */
 import { useMutation } from '@apollo/client';
 import { UPDATE_USER } from '../../../gql/user';
+
 import './WebSiteForm.scss';
 
 function WebSiteForm({ setShowModal, currentWebSite, refetch }) {

@@ -1,12 +1,18 @@
+/* hooks & libs */
 import React, { useEffect, useState } from 'react';
 import { size } from 'lodash';
+
+/* Components */
+import ListUsers from '../../ListUsers';
+import ModalBasic from '../../../Modal/ModalBasic';
+
+/* GraphQL */
 import { useQuery } from '@apollo/client';
 import {
   GET_FOLLOWERS,
   GET_FOLLOWING,
 } from '../../../../gql/follow';
-import ListUsers from '../../ListUsers';
-import ModalBasic from '../../../Modal/ModalBasic';
+
 import './Followers.scss';
 
 function Followers({ username, totalPublications }) {

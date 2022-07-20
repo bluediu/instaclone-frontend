@@ -1,11 +1,16 @@
-import { useParams } from 'react-router-dom';
-import Profile from '../components/User/Profile';
-import { useQuery } from '@apollo/client';
-import { size } from 'lodash';
-import { GET_PUBLICATIONS } from '../gql/publication';
-import Publications from '../components/Publications';
+/* hooks */
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { size } from 'lodash';
+
+/* Components */
+import Profile from '../components/User/Profile';
+import Publications from '../components/Publications';
 import FeedLoader from '../components/Home/Feed/FeedLoader/FeedLoader';
+
+/* GraphQL */
+import { useQuery } from '@apollo/client';
+import { GET_PUBLICATIONS } from '../gql/publication';
 
 function User() {
   const { username } = useParams();

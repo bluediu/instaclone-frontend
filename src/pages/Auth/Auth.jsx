@@ -1,8 +1,11 @@
 import { useState } from 'react';
+
+/* Components */
 import { Container, Image } from 'semantic-ui-react';
-import instaclone from '../../assets/instaclone.png';
 import LoginForm from '../../components/Auth/LoginForm/LoginForm';
 import RegisterForm from '../../components/Auth/RegisterForm';
+
+import instaclone from '../../assets/instaclone.png';
 import './Auth.scss';
 
 const Auth = () => {

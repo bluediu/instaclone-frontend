@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+/* Components */
 import { Grid } from 'semantic-ui-react';
 import Actions from '../Actions';
 import CommentForm from '../CommentForm/CommentForm';

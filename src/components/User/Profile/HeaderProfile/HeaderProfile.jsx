@@ -1,12 +1,17 @@
 import React from 'react';
-import './HeaderProfile.scss';
-import { useQuery, useMutation } from '@apollo/client';
+
+/* Components */
 import { Button } from 'semantic-ui-react';
+
+/* GraphQL */
+import { useQuery, useMutation } from '@apollo/client';
 import {
   IS_FOLLOW,
   FOLLOW,
   UNFOLLOW,
 } from '../../../../gql/follow';
+
+import './HeaderProfile.scss';
 
 function HeaderProfile({ username, auth, handleModal }) {
   const { data, loading, refetch } = useQuery(IS_FOLLOW, {

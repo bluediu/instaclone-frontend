@@ -1,10 +1,16 @@
+/* hooks */
 import React from 'react';
+import * as Yup from 'yup';
+
+/* Components */
 import { Form, Button } from 'semantic-ui-react';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import './CommentForm.scss';
+
+/* GraphQL */
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../../../../gql/comment';
+
+import './CommentForm.scss';
 
 function CommentForm({ publication, refetch }) {
   const [addComment] = useMutation(ADD_COMMENT);

@@ -1,9 +1,11 @@
-import './Header.scss';
+/* Components */
 import { Container, Grid, Image } from 'semantic-ui-react';
-import Logo from '../../assets/instaclone.png';
 import { Link } from 'react-router-dom';
 import RightHeader from './RightHeader';
 import Search from './Search/Search';
+
+import Logo from '../../assets/instaclone.png';
+import './Header.scss';
 
 function Header() {
   return (

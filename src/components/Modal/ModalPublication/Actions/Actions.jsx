@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+
+/* GraphQL */
 import { useMutation, useQuery } from '@apollo/client';
 
 import { Icon } from 'semantic-ui-react';
@@ -19,7 +21,7 @@ function Actions({ publication }) {
   const { data, loading, refetch } = useQuery(IS_LIKE, {
     variables: { idPublication: publication.id },
   });
-  
+
   const {
     data: dataCount,
     loading: loadingCount,

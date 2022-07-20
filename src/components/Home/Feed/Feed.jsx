@@ -1,21 +1,27 @@
+/* hooks & libs */
 import React, { useEffect, useState } from 'react';
-import { Image } from 'semantic-ui-react';
-import './Feed.scss';
-
 import { map } from 'lodash';
+
+/* Components */
 import { Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { Image } from 'semantic-ui-react';
 import FeedLoader from './FeedLoader/FeedLoader';
-import { GET_PUBLICATIONS_FOLLOWING } from '../../../gql/publication';
-import ImageNotFound from '../../../assets/avatar.png';
 import Actions from '../../Modal/ModalPublication/Actions/Actions';
 import CommentForm from '../../Modal/ModalPublication/CommentForm/CommentForm';
 import ModalPublication from '../../Modal/ModalPublication/ModalPublication';
+
+/* GraphQL */
+import { useQuery } from '@apollo/client';
+import { GET_PUBLICATIONS_FOLLOWING } from '../../../gql/publication';
+
+import ImageNotFound from '../../../assets/avatar.png';
+import './Feed.scss';
 
 function Feed() {
   const { data, loading, startPolling, stopPolling } = useQuery(
     GET_PUBLICATIONS_FOLLOWING
   );
+
   const [showModal, setShowModal] = useState(false);
   const [publicationSelect, setPublicationSelect] =
     useState(null);

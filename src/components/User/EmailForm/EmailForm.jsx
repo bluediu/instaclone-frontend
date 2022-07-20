@@ -1,10 +1,16 @@
+/* hooks & libs */
 import React from 'react';
-import { Button, Form } from 'semantic-ui-react';
 import { toast } from 'react-toastify';
-import { useFormik } from 'formik';
 import * as Yup from 'yup';
+
+/* Components */
+import { Button, Form } from 'semantic-ui-react';
+import { useFormik } from 'formik';
+
+/* GraphQL */
 import { useMutation } from '@apollo/client';
 import { UPDATE_USER } from '../../../gql/user';
+
 import './EmailForm.scss';
 
 function EmailForm({ setShowModal, currentEmail, refetch }) {

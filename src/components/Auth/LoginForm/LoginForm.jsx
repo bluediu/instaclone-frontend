@@ -1,12 +1,18 @@
-import './LoginForm.scss';
-import { Form, Button } from 'semantic-ui-react';
+/* hooks & libs */
+import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { decodeToken, setToken } from '../../../utils/token';
+
+/* Components */
+import { Form, Button } from 'semantic-ui-react';
+import useAuth from '../../../hooks/useAuth';
+
+/* GraphQL */
 import { useMutation } from '@apollo/client';
 import { LOGIN } from '../../../gql/user';
-import { useState } from 'react';
-import { decodeToken, setToken } from '../../../utils/token';
-import useAuth from '../../../hooks/useAuth';
+
+import './LoginForm.scss';
 
 function LoginForm() {
   const [error, setError] = useState('');

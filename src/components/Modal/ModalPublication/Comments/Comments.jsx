@@ -1,7 +1,11 @@
+/* libs */
 import React from 'react';
-import { Image } from 'semantic-ui-react';
 import { map } from 'lodash';
+
+/* Components */
+import { Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+
 import ImageNotFound from '../../../../assets/avatar.png';
 import './Comments.scss';
 

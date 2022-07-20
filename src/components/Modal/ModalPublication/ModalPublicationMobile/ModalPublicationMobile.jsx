@@ -1,7 +1,10 @@
 import { Grid, Image } from 'semantic-ui-react';
+
+/* Components */
 import Actions from '../Actions';
 import CommentForm from '../CommentForm/CommentForm';
 import Comments from '../Comments';
+
 import './ModalPublicationMobile.scss';
 
 function ModalPublicationMobile({

@@ -1,9 +1,15 @@
+/* libs */
 import React from 'react';
+import { map } from 'lodash';
+
+/* Components */
 import { Image } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-import { map } from 'lodash';
+
+/* GraphQL */
 import { useQuery } from '@apollo/client';
 import { GET_NOT_FOLLOWERS } from '../../../gql/follow';
+
 import ImageNotFound from '../../../assets/avatar.png';
 import './UserNotFollowing.scss';
 

@@ -1,8 +1,11 @@
 import React from 'react';
-import { Grid } from 'semantic-ui-react';
 import { map } from 'lodash';
-import './Publications.scss';
+
+/* Components */
+import { Grid } from 'semantic-ui-react';
 import PreviewPublications from './PreviewPublications/PreviewPublications';
+
+import './Publications.scss';
 
 function Publications({ getPublications }) {
   return (

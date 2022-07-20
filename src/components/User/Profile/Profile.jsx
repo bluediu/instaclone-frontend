@@ -1,16 +1,22 @@
-import './Profile.scss';
+/* hooks */
 import { useEffect, useState } from 'react';
-import { Grid, Image } from 'semantic-ui-react';
-import { useQuery } from '@apollo/client';
-import { GET_USER } from '../../../gql/user';
 import useAuth from '../../../hooks/useAuth';
-import ImageNotFound from '../../../assets/avatar.png';
+
+/* Components */
+import { Grid, Image } from 'semantic-ui-react';
 import ModalBasic from '../../Modal/ModalBasic';
 import UserNotFound from '../../UserNotFound';
 import AvatarForm from '../AvatarForm';
 import HeaderProfile from './HeaderProfile';
 import SettingForm from '../SettingForm/SettingForm';
 import Followers from './Followers';
+
+/* GraphQL */
+import { useQuery } from '@apollo/client';
+import { GET_USER } from '../../../gql/user';
+
+import ImageNotFound from '../../../assets/avatar.png';
+import './Profile.scss';
 
 function Profile({ username, totalPublications }) {
   const [showModal, setShowModal] = useState(false);

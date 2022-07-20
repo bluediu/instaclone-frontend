@@ -1,5 +1,6 @@
-import './ModalBasic.scss';
 import { Modal } from 'semantic-ui-react';
+import './ModalBasic.scss';
+
 function ModalBasic(props) {
   const { show, setShow, title, children } = props;
 
