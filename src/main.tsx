@@ -7,15 +7,24 @@ import App from './App.tsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
+/* Context */
+import { UIProvider } from './context';
+import { AuthProvider } from './apps/Users/context';
+
 /* Styles */
 import 'semantic-ui-css/semantic.min.css';
 import 'react-toastify/dist/ReactToastify.css';
+import './index.scss';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={new QueryClient()}>
       <ReactQueryDevtools initialIsOpen={false} />
-      <App />
+      <UIProvider>
+        <AuthProvider>
+          <App />
+        </AuthProvider>
+      </UIProvider>
     </QueryClientProvider>
   </StrictMode>
 );

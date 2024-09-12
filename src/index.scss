@@ -1,0 +1,51 @@
+@import './sass/global.scss';
+
+body {
+  background-color: $background-grey-light;
+}
+
+.ui.form {
+  .btn-submit {
+    width: 100%;
+    background-color: $action;
+    color: $font-light;
+  }
+
+  .submit-error {
+    color: $danger;
+    text-align: center;
+    margin: 20px 0 0 0;
+  }
+}
+
+.ui.button.btn-action {
+  background-color: $action !important;
+  color: $font-light !important;
+  border-color: $action !important;
+}
+
+.ui.button.btn-danger {
+  background-color: $danger !important;
+  color: $font-light !important;
+  border-color: $danger !important;
+}
+
+.publications-spinner {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  span {
+    padding-top: 20px;
+    color: $font-grey;
+  }
+}
+
+.there-are-not {
+  display: block;
+  margin-top: 5rem;
+  text-align: center;
+  color: $font-grey;
+}
