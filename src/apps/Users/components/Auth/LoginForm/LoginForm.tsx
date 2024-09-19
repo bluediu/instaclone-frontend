@@ -20,18 +20,15 @@ export const LoginForm = () => {
   const { auth, login } = data as TranslationType;
   const mutate = useLoginMutation();
 
-  // TODO: Change authentication.
   const { values, errors, handleSubmit, handleChange } = useFormik({
     initialValues: {
-      // email: '',
-      username: 'maria',
-      password: 'kernelpanic',
+      email: '',
+      password: '',
     },
     validationSchema: Yup.object({
-      // email: Yup.string()
-      // .email('Invalid email format')
-      // .required('Email is required'),
-      username: Yup.string().required(login.errors.username),
+      email: Yup.string()
+        .email(login.errors.email.format)
+        .required(login.errors.email.required),
       password: Yup.string()
         .required(login.errors.password.required)
         .min(6, login.errors.password.min),
@@ -46,12 +43,12 @@ export const LoginForm = () => {
       <h2>{auth.title}</h2>
 
       <Form.Input
-        type="text"
-        name="username"
-        placeholder={login.username}
-        value={values.username}
+        type="email"
+        name="email"
+        placeholder={login.email}
+        value={values.email}
         onChange={handleChange}
-        error={errors.username}
+        error={errors.email}
       />
       <Form.Input
         type="password"
