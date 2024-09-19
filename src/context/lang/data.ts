@@ -6,11 +6,14 @@ export const translation = {
       signInAccount: { title: 'Sign In with your account', btn: 'Sign In' },
     },
     login: {
-      username: 'Username',
+      email: 'Email',
       password: 'Password',
       btn: 'Sign In',
       errors: {
-        username: 'Username is required',
+        email: {
+          required: 'Email is required',
+          format: 'Invalid email address format.',
+        },
         password: {
           required: 'Password is required',
           min: 'Password must be at least 6 characters',
@@ -54,11 +57,14 @@ export const translation = {
       },
     },
     login: {
-      username: 'Usuario',
+      email: 'Correo electrónico',
       password: 'Contraseña',
       btn: 'Iniciar sección',
       errors: {
-        username: 'Usuario es requerido',
+        email: {
+          required: 'Correo electrónico es requerido',
+          format: 'Formato invalido para correo electrónico.',
+        },
         password: {
           required: 'Contraseña es requerida',
           min: 'La contraseña debe tener al menos 6 caracteres',
