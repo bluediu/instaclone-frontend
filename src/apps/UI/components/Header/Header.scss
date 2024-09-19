@@ -1,0 +1,33 @@
+@import '../../../../sass/global.scss';
+
+.header {
+  position: relative;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 12px 0;
+  background-color: $background-light;
+  z-index: 1;
+
+  &__logo {
+    display: flex !important;
+    align-items: center;
+
+    img {
+      height: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: 988px) {
+  .mobile-center__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .right-header > * {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+}

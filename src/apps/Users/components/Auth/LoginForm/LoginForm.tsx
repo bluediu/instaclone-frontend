@@ -16,8 +16,8 @@ import './LoginForm.scss';
 
 export const LoginForm = () => {
   const { data } = useUI();
-
   const { auth, login } = data as TranslationType;
+
   const mutate = useLoginMutation();
 
   const { values, errors, handleSubmit, handleChange } = useFormik({

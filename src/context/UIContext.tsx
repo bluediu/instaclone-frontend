@@ -33,6 +33,8 @@ export const UIProvider: TProviderChildren = ({ children }) => {
   const [lang, setLang] = useState<TLang>(choiceLang ?? 'en');
 
   const changeLang = (newLang: TLang) => {
+    if (newLang === lang) return;
+
     localStorage.setItem(LANG, newLang);
     setLang(newLang);
   };
@@ -45,6 +47,7 @@ export const UIProvider: TProviderChildren = ({ children }) => {
       // Fallback to 'en' if lang is missing
       data: translation[lang] || translation['en'],
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [lang]
   );
 

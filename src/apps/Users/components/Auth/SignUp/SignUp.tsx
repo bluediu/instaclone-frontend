@@ -25,8 +25,8 @@ interface ISignUpForm {
 
 export const SignUp = () => {
   const { data } = useUI();
-
   const { auth, signUp } = data as TranslationType;
+
   const mutate = useSignUpMutation();
 
   const formik = useFormik({
@@ -117,11 +117,11 @@ export const SignUp = () => {
 
 function initialValues(): ISignUpForm {
   return {
-    first_name: 'Celeste',
+    first_name: '',
     last_name: '',
-    username: 'celeste',
-    email: 'celeste@gmail.com',
-    password: 'kernelpanic',
-    repeat_password: 'kernelpanic',
+    username: '',
+    email: '',
+    password: '',
+    repeat_password: '',
   };
 }

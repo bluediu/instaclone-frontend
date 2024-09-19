@@ -21,6 +21,13 @@ export interface IUser {
   updated_at: Date;
 }
 
+export interface IUpdateUser {
+  first_name: string;
+  last_name: string;
+  description: string;
+  website: string;
+}
+
 export interface IAuthUser {
   refresh: string;
   access: string;
