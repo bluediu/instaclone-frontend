@@ -46,6 +46,32 @@ export const translation = {
         },
       },
     },
+    profile: {
+      settingAction: 'Edit profile',
+      form: {
+        firstName: 'First name',
+        lastName: 'Last name',
+        description: 'Description',
+        website: 'Website',
+        btn: 'Update',
+        cancelBtn: 'Cancel',
+        errors: {
+          firstName: 'First name must be at least 2 characters',
+          lastName: 'Last name must be at least 2 characters',
+          description: 'Description must be less than 200 characters',
+          website: 'Enter a valid URL',
+        },
+      },
+    },
+    headerOpts: {
+      profile: 'Profile',
+      logout: 'Log out',
+      lang: {
+        title: 'Language',
+        en: 'English',
+        es: 'Spanish',
+      },
+    },
   },
   es: {
     auth: {
@@ -95,6 +121,32 @@ export const translation = {
           min: 'La contraseña debe tener al menos 6 caracteres',
           oneOf: 'Las contraseñas no son iguales',
         },
+      },
+    },
+    profile: {
+      settingAction: 'Editar perfil',
+      form: {
+        firstName: 'Nombre',
+        lastName: 'Apellido',
+        description: 'Descripción',
+        website: 'Sitio web',
+        btn: 'Actualizar',
+        cancelBtn: 'Cancelar',
+        errors: {
+          firstName: 'El nombre debe tener al menos 2 caracteres',
+          lastName: 'El apellido debe tener al menos 2 caracteres',
+          description: 'La descripción debe ser tener menos de 200 caracteres',
+          website: 'Ingrese una URL valida',
+        },
+      },
+    },
+    headerOpts: {
+      profile: 'Perfil',
+      logout: 'Cerrar sesión',
+      lang: {
+        title: 'Idioma',
+        en: 'Inglés',
+        es: 'Español',
       },
     },
   },

@@ -1,5 +1,6 @@
 // import viteLogo from '/vite.svg'
 /* Components */
+import Navigation from './routes/Navigation';
 import { ToastContainer } from 'react-toastify';
 
 /* Pages */
@@ -13,7 +14,7 @@ function App() {
 
   return (
     <>
-      {auth === undefined ? <AuthPage /> : <h1>HOLA</h1>}
+      {auth === undefined ? <AuthPage /> : <Navigation />}
       <ToastContainer
         position="top-right"
         autoClose={5000}

@@ -1,0 +1,31 @@
+@import '../../../../../sass/global.scss';
+
+.right-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+
+  i.icon {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 19px;
+    color: $font-dark;
+  }
+
+  .ui.image.avatar {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+  }
+
+  i.icon,
+  .ui.image.avatar {
+    margin: 0 0 0 25px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
