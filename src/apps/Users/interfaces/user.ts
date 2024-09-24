@@ -28,6 +28,10 @@ export interface IUpdateUser {
   website: string;
 }
 
+export interface IUploadAvatar {
+  avatar: File;
+}
+
 export interface IAuthUser {
   refresh: string;
   access: string;

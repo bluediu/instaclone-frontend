@@ -3,13 +3,11 @@ import { useState } from 'react';
 /* Components */
 import { Extra } from './Extra';
 import { Header } from './Header';
-import { Settings } from './Forms';
+import { Avatar, Settings } from './Forms';
+import { NoUserFound } from './NoUserFound';
 import { Grid, Image } from 'semantic-ui-react';
 import { ModalBasic } from '../../../../shared';
 import { FeedLoader } from '../../../UI/components';
-
-/* Statics */
-import NO_IMAGE from '/img/avatar.png';
 
 /* Hooks */
 import { useAuth, useUser } from '../../hooks';
@@ -17,6 +15,9 @@ import { useModal, useUI } from '../../../../hooks';
 
 /* Types */
 import { TranslationType, TSize } from '../../../../types';
+
+/* Statics */
+import NO_IMAGE from '/img/avatar.png';
 
 import './Profile.scss';
 
@@ -51,6 +52,8 @@ export const Profile = ({ username, totalPubs }: IProps) => {
     );
   }
 
+  if (query.isError) return <NoUserFound />;
+
   console.log(totalPubs);
   const { data } = query;
 
@@ -63,7 +66,14 @@ export const Profile = ({ username, totalPubs }: IProps) => {
   };
 
   const onChangeAvatar = () => {
-    openModal('Avatar', <p>HOLA</p>);
+    openModal(
+      profile.avatarAction,
+      <Avatar
+        username={username}
+        onClose={closeModal}
+        lang={lang as TranslationType}
+      />
+    );
     setSize('mini');
   };
 
@@ -75,7 +85,7 @@ export const Profile = ({ username, totalPubs }: IProps) => {
           <Image
             src={data!.avatar ? data!.avatar : NO_IMAGE}
             avatar
-            onClick={() => onChangeAvatar()}
+            onClick={onChangeAvatar}
           />
         </Grid.Column>
 

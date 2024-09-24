@@ -8,22 +8,22 @@ import { Errors } from '../../../../shared';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 /* Interfaces */
-import { IUpdateUser } from '../../interfaces';
+import { IUploadAvatar } from '../../interfaces';
 
 /* Services */
 import { userActions } from '../../services';
 
-export const useUserUpdate = (username: string) => {
+export const useUploadAvatar = (username: string) => {
   const queryClient = useQueryClient();
 
   const mutation = useMutation({
-    mutationKey: ['userUpdate', username],
-    mutationFn: (user: IUpdateUser) =>
-      userActions.users.updateUser(username, user),
+    mutationKey: ['userUploadAvatar', username],
+    mutationFn: (data: IUploadAvatar) =>
+      userActions.users.uploadAvatar(username, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['user', username] });
       // Show success message.
-      toast.success('Profile Updated');
+      toast.success('Avatar Uploaded');
     },
     onError: (error) => {
       toast.error(<Errors error={error} />, { autoClose: false });
