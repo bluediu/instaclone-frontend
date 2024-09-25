@@ -1,6 +1,6 @@
 /* Components */
 import { Link } from 'react-router-dom';
-import { Dropdown, Icon, Image } from 'semantic-ui-react';
+import { Dropdown, Icon, Image, Popup } from 'semantic-ui-react';
 
 /* Constants */
 import { usersPath } from '../../../../Users/constants';
@@ -39,13 +39,29 @@ export const RightHeader = () => {
   return (
     <>
       <article className="right-header">
-        <Link to={usersPath.HOME}>
-          <Icon name="home" />
-        </Link>
-        <Icon
-          name="plus square outline"
-          onClick={() => console.log('Clicked')}
+        <Popup
+          content={headerOpts.popup.home}
+          trigger={
+            <Link to={usersPath.HOME}>
+              <Icon name="home" />
+            </Link>
+          }
+          position="top center"
+          size="tiny"
         />
+
+        <Popup
+          content={headerOpts.popup.create}
+          trigger={
+            <Icon
+              name="plus square outline"
+              onClick={() => console.log('Clicked')}
+            />
+          }
+          position="top center"
+          size="tiny"
+        />
+
         <Link to={generateUrl(usersPath.PROFILE, { username })}>
           <Image src={query.data?.avatar || NO_IMAGE} avatar />
         </Link>

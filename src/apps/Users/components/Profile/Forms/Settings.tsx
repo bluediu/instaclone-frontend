@@ -54,7 +54,7 @@ export const Settings = ({ user, onClose }: IProps) => {
     initialValues: values,
     validationSchema: Yup.object({
       first_name: Yup.string().min(2, profile.form.errors.firstName),
-      last_name: Yup.string().max(2, profile.form.errors.lastName),
+      last_name: Yup.string().min(2, profile.form.errors.lastName),
       description: Yup.string().max(200, profile.form.errors.description),
       website: Yup.string().url(profile.form.errors.website),
     }),

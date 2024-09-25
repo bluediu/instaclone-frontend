@@ -47,7 +47,8 @@ export const translation = {
       },
     },
     profile: {
-      settingAction: 'Edit profile',
+      settingAction: 'Edit Profile',
+      avatarAction: 'Change Profile Photo',
       form: {
         firstName: 'First name',
         lastName: 'Last name',
@@ -62,8 +63,17 @@ export const translation = {
           website: 'Enter a valid URL',
         },
       },
+      avatarOpts: {
+        upload: 'Upload Photo',
+        remove: 'Remove Current Photo',
+        cancel: 'Cancel',
+      },
     },
     headerOpts: {
+      popup: {
+        home: 'Home',
+        create: 'Create',
+      },
       profile: 'Profile',
       logout: 'Log out',
       lang: {
@@ -124,7 +134,8 @@ export const translation = {
       },
     },
     profile: {
-      settingAction: 'Editar perfil',
+      settingAction: 'Editar Perfil',
+      avatarAction: 'Cambiar Foto de Perfil',
       form: {
         firstName: 'Nombre',
         lastName: 'Apellido',
@@ -139,8 +150,17 @@ export const translation = {
           website: 'Ingrese una URL valida',
         },
       },
+      avatarOpts: {
+        upload: 'Subir Foto',
+        remove: 'Remove Foto Actual',
+        cancel: 'Cancelar',
+      },
     },
     headerOpts: {
+      popup: {
+        home: 'Inicio',
+        create: 'Crear',
+      },
       profile: 'Perfil',
       logout: 'Cerrar sesión',
       lang: {
