@@ -63,7 +63,7 @@ export const RightHeader = () => {
         />
 
         <Link to={generateUrl(usersPath.PROFILE, { username })}>
-          <Image src={query.data?.avatar || NO_IMAGE} avatar />
+          <Image loading="lazy" src={query.data?.avatar || NO_IMAGE} avatar />
         </Link>
 
         <Dropdown icon="bars" floating className="icon">

@@ -3,10 +3,13 @@ import { ReactElement } from 'react';
 /* Components */
 import { Modal, TransitionablePortal } from 'semantic-ui-react';
 
+/* Interfaces */
+import { IStylesProps } from '../interfaces';
+
 /* Types */
 import { TSize } from '../types';
 
-interface IProps {
+interface IProps extends IStylesProps {
   show: boolean;
   size?: TSize;
   onClose: () => void;
@@ -14,7 +17,7 @@ interface IProps {
 }
 
 export const ModalLayout = (props: IProps) => {
-  const { show, size = 'tiny', onClose, children } = props;
+  const { show, size = 'tiny', onClose, children, className } = props;
 
   return (
     <div>
@@ -37,7 +40,7 @@ export const ModalLayout = (props: IProps) => {
         transition={{ animation: 'scale', duration: 300 }}
       >
         <Modal
-          className="modal-basic"
+          className={`${className ?? ''}`}
           open={true}
           size={size}
           onClose={() => {
