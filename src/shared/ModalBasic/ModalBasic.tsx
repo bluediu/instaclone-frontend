@@ -10,25 +10,31 @@ import { useDeviceType } from '../../hooks';
 /* Types */
 import { TSize } from '../../types';
 
-import './ModalBasic.scss';
-
 interface IProps {
-  show: boolean;
-  title: string | null;
   children: ReactElement | ReactElement[];
+  padding: boolean;
+  show: boolean;
   size?: TSize;
+  title?: string | null;
+
   onClose: () => void;
 }
 
 export const ModalBasic = (props: IProps) => {
-  const { children, show, title, size, onClose } = props;
   const isTabletOrMobile = useDeviceType();
+
+  const { children, show, title, size, padding = true, onClose } = props;
 
   return (
     <ModalLayout size={size} show={show} onClose={onClose}>
       <>
         {title && <Modal.Header className="text-center">{title}</Modal.Header>}
-        <Modal.Content scrolling={!isTabletOrMobile}>{children}</Modal.Content>
+        <Modal.Content
+          style={!padding ? { padding: '0' } : {}}
+          scrolling={!isTabletOrMobile}
+        >
+          {children}
+        </Modal.Content>
       </>
     </ModalLayout>
   );

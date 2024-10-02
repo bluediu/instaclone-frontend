@@ -1,11 +1,13 @@
 import { useState } from 'react';
 
+/* Libs Components */
+import { Grid, Image } from 'semantic-ui-react';
+
 /* Components */
 import { Extra } from './Extra';
 import { Header } from './Header';
 import { Avatar, Settings } from './Forms';
 import { NoUserFound } from './NoUserFound';
-import { Grid, Image } from 'semantic-ui-react';
 import { ModalBasic } from '../../../../shared';
 import { FeedLoader } from '../../../UI/components';
 
@@ -19,11 +21,13 @@ import { TranslationType, TSize } from '../../../../types';
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';
 
+import { Followers } from './Followers';
+
 import './Profile.scss';
 
 interface IProps {
   username: string;
-  totalPubs: number;
+  totalPubs?: number;
 }
 
 export const Profile = ({ username, totalPubs }: IProps) => {
@@ -31,6 +35,7 @@ export const Profile = ({ username, totalPubs }: IProps) => {
   const { profile } = lang as TranslationType;
 
   const [size, setSize] = useState<TSize>('tiny');
+  const [padding, setPadding] = useState(true);
 
   const { auth } = useAuth();
   const query = useUser(username);
@@ -54,10 +59,10 @@ export const Profile = ({ username, totalPubs }: IProps) => {
 
   if (query.isError) return <NoUserFound />;
 
-  console.log(totalPubs);
   const { data } = query;
 
   const onChangeProfile = () => {
+    setPadding(true);
     setSize('tiny');
     openModal(
       profile.settingAction,
@@ -66,6 +71,7 @@ export const Profile = ({ username, totalPubs }: IProps) => {
   };
 
   const onChangeAvatar = () => {
+    setPadding(false);
     openModal(
       profile.avatarAction,
       <Avatar
@@ -96,6 +102,7 @@ export const Profile = ({ username, totalPubs }: IProps) => {
             authUsername={auth!.username}
             onChangeProfile={onChangeProfile}
           />
+          <Followers totalPubs={totalPubs!} />
           <Extra data={query.data!} />
         </Grid.Column>
       </Grid>
@@ -104,6 +111,7 @@ export const Profile = ({ username, totalPubs }: IProps) => {
         show={showModal}
         onClose={closeModal}
         title={modalTitle}
+        padding={padding}
         size={size}
         children={modalContent ?? <span>No content</span>}
       />
