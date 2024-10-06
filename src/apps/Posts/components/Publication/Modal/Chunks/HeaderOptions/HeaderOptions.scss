@@ -1,0 +1,23 @@
+@import '../../../../../../../sass/global.scss';
+
+.header-options {
+  display: flex;
+  flex-direction: column;
+
+  .ui.button {
+    background-color: $background-light;
+    border-bottom: 1px solid $border-grey;
+    padding: 18px 0;
+    border-radius: 0;
+
+    &:nth-child(1) {
+      color: $action;
+    }
+    &:nth-child(2) {
+      color: $danger;
+    }
+    &:nth-child(3) {
+      border-bottom: none;
+    }
+  }
+}

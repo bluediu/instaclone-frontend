@@ -8,7 +8,7 @@ import { LoginForm, SignUp } from '../../components/Auth';
 import { useUI } from '../../../../hooks';
 
 /* Types */
-import { TLang, TranslationType } from '../../../../types';
+import { TLang } from '../../../../types';
 
 /* Statics */
 import LOGO from '/img/instaclone.png';
@@ -26,7 +26,7 @@ const languageOptions = [
 export const AuthPage = () => {
   const { data, changeLang } = useUI();
 
-  const { auth } = data as TranslationType;
+  const { auth } = data;
 
   const [showLogin, setShowLogin] = useState(true);
 

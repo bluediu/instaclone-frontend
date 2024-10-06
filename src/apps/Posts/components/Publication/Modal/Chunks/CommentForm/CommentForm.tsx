@@ -5,9 +5,15 @@ import { useFormik } from 'formik';
 /* Components */
 import { Button, Form } from 'semantic-ui-react';
 
+/* Hooks */
+import { useUI } from '../../../../../../../hooks';
+
 import './CommentForm.scss';
 
 export const CommentForm = () => {
+  const { data } = useUI();
+  const { form } = data.posts.preview;
+
   const formik = useFormik({
     initialValues: { comment: '' },
     validationSchema: Yup.object({
@@ -21,13 +27,13 @@ export const CommentForm = () => {
   return (
     <Form className="comment-form" onSubmit={formik.handleSubmit}>
       <Form.Input
-        placeholder="Añade un comentario..."
+        placeholder={form.placeholder}
         name="comment"
         onChange={formik.handleChange}
         value={formik.values.comment}
         error={formik.errors.comment && true}
       />
-      <Button type="submit">Publicar</Button>
+      <Button type="submit">{form.btn}</Button>
     </Form>
   );
 };

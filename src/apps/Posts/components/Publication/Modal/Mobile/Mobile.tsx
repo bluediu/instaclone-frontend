@@ -3,33 +3,29 @@ import { Grid, Segment } from 'semantic-ui-react';
 import { PostActions, PostDate, PostHeader, PostImage } from '../Chunks';
 
 /* Hooks */
-import { useImgToggle } from '../../../../hooks';
+import { useImgToggle, usePubContext } from '../../../../hooks';
 
-/* Interfaces */
-import { IPublication } from '../../../../interfaces';
+import './Mobile.scss';
 
-interface IProps {
-  pub: IPublication;
-  closeModal: () => void;
-}
+export const Mobile = () => {
+  const { selectedPublication: pub } = usePubContext();
 
-export const Mobile = ({ pub, closeModal }: IProps) => {
   const { toggleImageSize, handleToggleSize } = useImgToggle();
 
   return (
     <Grid>
       {/* Header */}
-      <Grid.Row style={{ height: '10%' }}>
+      <Grid.Row className="mobile-header-size">
         <div
           className="d-flex align-items-center justify-content-between mx-3"
           style={{ width: '100%', height: 'auto' }}
         >
-          <PostHeader user={pub.user} closeModal={closeModal} />
+          <PostHeader />
         </div>
       </Grid.Row>
 
       {/* Image */}
-      <Grid.Row onClick={handleToggleSize} style={{ height: '70%' }}>
+      <Grid.Row onClick={handleToggleSize} className="mobile-image-size">
         <PostImage image={pub.image} toggleSize={toggleImageSize} />
       </Grid.Row>
 

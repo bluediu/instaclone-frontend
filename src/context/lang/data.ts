@@ -82,6 +82,40 @@ export const translation = {
         es: 'Spanish',
       },
     },
+    posts: {
+      title: 'POSTS',
+      loader: 'Loading publications...',
+      preview: {
+        action: {
+          like: 'Like',
+          comment: 'Comment',
+          download: 'Download',
+        },
+        form: {
+          placeholder: 'Add a comment...',
+          btn: 'Post',
+        },
+        opts: {
+          delete: 'Delete',
+          edit: 'Edit',
+          cancel: 'Cancel',
+        },
+      },
+      create: {
+        title: 'Drag or select your photo to post it',
+        btnSelect: 'Select from device',
+        btnCreate: 'Share',
+        btnUpdate: 'Update',
+        form: {
+          desc: 'Description (optional)',
+        },
+        validations: {
+          desc: 'Description must be less than 100 characters',
+          img: 'Image is required.',
+        },
+        helpText: 'To replace the image just select a new one.',
+      },
+    },
   },
   es: {
     auth: {
@@ -167,6 +201,40 @@ export const translation = {
         title: 'Idioma',
         en: 'Inglés',
         es: 'Español',
+      },
+    },
+    posts: {
+      title: 'PUBLICACIONES',
+      loader: 'Cargando publicaciones...',
+      preview: {
+        action: {
+          like: 'Me gusta',
+          comment: 'Comentario',
+          download: 'Descargar',
+        },
+        form: {
+          placeholder: 'Añade un comentario...',
+          btn: 'Publicar',
+        },
+        opts: {
+          delete: 'Eliminar',
+          edit: 'Editar',
+          cancel: 'Cancelar',
+        },
+      },
+      create: {
+        title: 'Arrastra o selecciona una foto para publicarla',
+        btnSelect: 'Seleccionar de dispositivo',
+        btnCreate: 'Compartir',
+        btnUpdate: 'Actualizar',
+        form: {
+          desc: 'Descripción (opcional)',
+        },
+        validations: {
+          desc: 'La descripción debe tener menos de 100 caracteres.',
+          img: 'La imagen es requerida.',
+        },
+        helpText: 'Para remplazar la image solo seleccione una nueva.',
       },
     },
   },

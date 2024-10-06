@@ -9,14 +9,11 @@ import { Button, Form } from 'semantic-ui-react';
 import { useUI } from '../../../../../hooks';
 import { useLoginMutation } from '../../../hooks';
 
-/* Types */
-import { TranslationType } from '../../../../../types';
-
 import './LoginForm.scss';
 
 export const LoginForm = () => {
   const { data } = useUI();
-  const { auth, login } = data as TranslationType;
+  const { auth, login } = data;
 
   const mutate = useLoginMutation();
 

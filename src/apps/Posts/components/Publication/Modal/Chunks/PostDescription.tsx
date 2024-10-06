@@ -14,13 +14,16 @@ import { usersPath } from '../../../../../Users/constants';
 /* Utils */
 import { generateUrl } from '../../../../../../utils';
 
+/* Statics */
+import NO_IMAGE from '/img/avatar.png';
+
 export const PostDescription = ({ pub }: { pub: IPublication }) => {
   const { dayjs } = useDate();
 
   return (
     <Comment.Group size="small" className="ml-3">
       <Comment>
-        <Comment.Avatar src={pub.user.avatar} />
+        <Comment.Avatar src={pub.user.avatar || NO_IMAGE} />
         <Comment.Content>
           <Comment.Author
             as={Link}

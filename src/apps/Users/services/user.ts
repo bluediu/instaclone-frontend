@@ -25,7 +25,6 @@ export const uploadAvatar = async (
   avatar: IUploadAvatar
 ): Promise<IUser> => {
   const formData = fn.createFormData(avatar);
-  console.log(formData);
 
   const { data } = await userApi.put<IUser>(
     `/${username}/upload_avatar/`,

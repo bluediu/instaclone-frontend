@@ -9,9 +9,6 @@ import { Button, Form } from 'semantic-ui-react';
 import { useUI } from '../../../../../hooks';
 import { useSignUpMutation } from '../../../hooks';
 
-/* Types */
-import { TranslationType } from '../../../../../types';
-
 import './SignUp.scss';
 
 interface ISignUpForm {
@@ -25,7 +22,7 @@ interface ISignUpForm {
 
 export const SignUp = () => {
   const { data } = useUI();
-  const { auth, signUp } = data as TranslationType;
+  const { auth, signUp } = data;
 
   const mutate = useSignUpMutation();
 

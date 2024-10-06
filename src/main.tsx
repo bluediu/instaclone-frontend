@@ -9,6 +9,7 @@ import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 /* Context */
 import { UIProvider } from './context';
+import { PublicationProvider } from './apps/Posts/context';
 import { AuthProvider } from './apps/Users/context';
 
 /* Styles */
@@ -22,7 +23,9 @@ createRoot(document.getElementById('root')!).render(
       <ReactQueryDevtools initialIsOpen={false} />
       <UIProvider>
         <AuthProvider>
-          <App />
+          <PublicationProvider>
+            <App />
+          </PublicationProvider>
         </AuthProvider>
       </UIProvider>
     </QueryClientProvider>
