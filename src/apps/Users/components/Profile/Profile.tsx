@@ -16,7 +16,7 @@ import { useAuth, useUser } from '../../hooks';
 import { useModal, useUI } from '../../../../hooks';
 
 /* Types */
-import { TranslationType, TSize } from '../../../../types';
+import { TSize } from '../../../../types';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';
@@ -32,7 +32,7 @@ interface IProps {
 
 export const Profile = ({ username, totalPubs }: IProps) => {
   const { data: lang } = useUI();
-  const { profile } = lang as TranslationType;
+  const { profile } = lang;
 
   const [size, setSize] = useState<TSize>('tiny');
   const [padding, setPadding] = useState(true);
@@ -74,11 +74,7 @@ export const Profile = ({ username, totalPubs }: IProps) => {
     setPadding(false);
     openModal(
       profile.avatarAction,
-      <Avatar
-        username={username}
-        onClose={closeModal}
-        lang={lang as TranslationType}
-      />
+      <Avatar username={username} onClose={closeModal} lang={lang} />
     );
     setSize('mini');
   };

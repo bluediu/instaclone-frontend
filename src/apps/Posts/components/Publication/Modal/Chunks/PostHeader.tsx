@@ -2,8 +2,13 @@
 import { Link } from 'react-router-dom';
 import { Icon, Image } from 'semantic-ui-react';
 
-/* Interfaces */
-import { IUser } from '../../../../../Users/interfaces';
+import { ModalUpload } from '../../ModalUpload';
+import { HeaderOptions } from './HeaderOptions';
+import { ModalBasic } from '../../../../../../shared';
+
+/* Hooks */
+import { usePubContext } from '../../../../hooks';
+import { useBasicModal, useModal } from '../../../../../../hooks';
 
 /* Utils */
 import { generateUrl } from '../../../../../../utils';
@@ -15,23 +20,50 @@ import { usersPath } from '../../../../../Users/constants';
 import NO_IMAGE from '/img/avatar.png';
 
 interface IProps {
-  user: IUser;
-  closeBtn?: boolean;
-  closeModal?: () => void;
+  showCloseButton?: boolean;
 }
 
-export const PostHeader = (props: IProps) => {
-  const { user, closeBtn = true, closeModal } = props;
+export const PostHeader = ({ showCloseButton = true }: IProps) => {
+  const { selectedPublication: pub, closePublicationModal } = usePubContext();
+  const { user } = pub;
+
+  /* === Modal windows === */
+
+  /* prettier-ignore */
+  const { 
+    showModal, 
+    modalContent, 
+    modalTitle,
+    openModal,
+    closeModal
+  } = useModal();
+
+  const {
+    show,
+    showModal: showEditModal,
+    closeModal: closeEditModal,
+  } = useBasicModal();
+
+  const openOptions = () => {
+    openModal(
+      '',
+      <HeaderOptions
+        pub={pub}
+        closeModal={closeModal}
+        showEditModal={showEditModal}
+      />
+    );
+  };
 
   return (
     <>
       <section>
-        {closeBtn && (
+        {showCloseButton && (
           <Icon
             name="angle left"
             size="large"
             className="text-secondary cursor-pointer"
-            onClick={closeModal}
+            onClick={closePublicationModal}
           />
         )}
 
@@ -46,6 +78,23 @@ export const PostHeader = (props: IProps) => {
           name="ellipsis horizontal"
           size="large"
           style={{ opacity: '0.7' }}
+          onClick={openOptions}
+        />
+
+        <ModalBasic
+          show={showModal}
+          onClose={closeModal}
+          title={modalTitle}
+          padding={false}
+          size="mini"
+          children={modalContent ?? <span>No content</span>}
+        />
+        <ModalUpload
+          action="update"
+          show={show}
+          onClose={closeEditModal}
+          preview={pub.image}
+          desc={pub.description}
         />
       </section>
     </>

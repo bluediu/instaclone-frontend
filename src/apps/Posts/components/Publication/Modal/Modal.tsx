@@ -6,37 +6,25 @@ import { Mobile } from './Mobile';
 import { Desktop } from './Desktop';
 
 /* Hooks */
+import { usePubContext } from '../../../hooks';
 import { useDeviceType } from '../../../../../hooks';
-
-/* Interfaces */
-import { IPublication } from '../../../interfaces';
 
 import './Modal.scss';
 
-interface IProps {
-  show: boolean;
-  closeModal: () => void;
-  publication: IPublication;
-}
-
-export const Modal = (props: IProps) => {
+export const Modal = () => {
   const isTabletOrMobile = useDeviceType();
 
-  const { show, closeModal, publication } = props;
+  const { isModalOpen, closePublicationModal } = usePubContext();
 
   return (
     <div>
       <ModalLayout
-        show={show}
+        show={isModalOpen}
         size="large"
-        onClose={closeModal}
+        onClose={closePublicationModal}
         className="modal-publication"
       >
-        {isTabletOrMobile ? (
-          <Mobile pub={publication} closeModal={closeModal} />
-        ) : (
-          <Desktop pub={publication} />
-        )}
+        {isTabletOrMobile ? <Mobile /> : <Desktop />}
       </ModalLayout>
     </div>
   );

@@ -14,9 +14,6 @@ import { useUserUpdate } from '../../../hooks';
 /* Interfaces */
 import { IUser } from '../../../interfaces';
 
-/* Types */
-import { TranslationType } from '../../../../../types';
-
 /* Tipos */
 interface IEditUserForm {
   first_name: string;
@@ -32,7 +29,7 @@ interface IProps {
 
 export const Settings = ({ user, onClose }: IProps) => {
   const { data } = useUI();
-  const { profile } = data as TranslationType;
+  const { profile } = data;
 
   const mutate = useUserUpdate(user.username);
 

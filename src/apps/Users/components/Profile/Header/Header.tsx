@@ -4,9 +4,6 @@ import { Button } from 'semantic-ui-react';
 /* Hooks */
 import { useUI } from '../../../../../hooks';
 
-/* Types */
-import { TranslationType } from '../../../../../types';
-
 import './Header.scss';
 
 interface IProps {
@@ -17,7 +14,7 @@ interface IProps {
 
 export const Header = (props: IProps) => {
   const { data } = useUI();
-  const { profile } = data as TranslationType;
+  const { profile } = data;
 
   const { username, authUsername, onChangeProfile } = props;
 

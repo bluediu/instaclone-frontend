@@ -1,12 +1,13 @@
 /* Components */
 import { Link } from 'react-router-dom';
 import { Dropdown, Icon, Image, Popup } from 'semantic-ui-react';
+import { ModalUpload } from '../../../../Posts/components/Publication';
 
 /* Constants */
 import { usersPath } from '../../../../Users/constants';
 
 /* Hooks */
-import { useUI } from '../../../../../hooks';
+import { useBasicModal, useUI } from '../../../../../hooks';
 import { useAuth, useUser } from '../../../../Users/hooks';
 
 /* Utils */
@@ -21,9 +22,14 @@ import NO_IMAGE from '/img/avatar.png';
 import './RightHeader.scss';
 
 export const RightHeader = () => {
+  /* Context */
   const { auth, logout } = useAuth();
   const { changeLang, data, lang } = useUI();
 
+  /* States */
+  const { show, showModal, closeModal } = useBasicModal();
+
+  /* Data */
   const { headerOpts } = data as TranslationType;
 
   const username = auth!.username;
@@ -52,12 +58,7 @@ export const RightHeader = () => {
 
         <Popup
           content={headerOpts.popup.create}
-          trigger={
-            <Icon
-              name="plus square outline"
-              onClick={() => console.log('Clicked')}
-            />
-          }
+          trigger={<Icon name="plus square outline" onClick={showModal} />}
           position="top center"
           size="tiny"
         />
@@ -99,6 +100,8 @@ export const RightHeader = () => {
           </Dropdown.Menu>
         </Dropdown>
       </article>
+
+      <ModalUpload action="create" show={show} onClose={closeModal} />
     </>
   );
 };

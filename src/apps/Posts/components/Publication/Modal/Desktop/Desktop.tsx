@@ -9,15 +9,14 @@ import {
   PostDate,
 } from '../Chunks';
 
-/* Interfaces */
-import { IPubProps } from '../../../../interfaces';
-
 /* Hooks */
-import { useImgToggle } from '../../../../hooks';
+import { useImgToggle, usePubContext } from '../../../../hooks';
 
 import './Desktop.scss';
 
-export const Desktop = ({ pub }: IPubProps) => {
+export const Desktop = () => {
+  const { selectedPublication: pub } = usePubContext();
+
   const { toggleImageSize, handleToggleSize } = useImgToggle();
 
   return (
@@ -41,7 +40,7 @@ export const Desktop = ({ pub }: IPubProps) => {
           vertical
           className="d-flex align-items-center justify-content-between mx-3"
         >
-          <PostHeader user={pub.user} closeBtn={false} />
+          <PostHeader showCloseButton={false} />
         </Segment>
 
         {/* Comments */}
