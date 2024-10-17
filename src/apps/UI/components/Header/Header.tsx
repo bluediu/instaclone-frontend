@@ -1,4 +1,5 @@
 /* Components */
+import { Search } from './Search';
 import { Link } from 'react-router-dom';
 import { RightHeader } from './RightHeader';
 import { Container, Grid, Image } from 'semantic-ui-react';
@@ -27,7 +28,7 @@ export const Header = () => {
           </Grid.Column>
 
           <Grid.Column computer={10} mobile={16}>
-            <h3>Search</h3>
+            <Search />
           </Grid.Column>
 
           <Grid.Column computer={3} mobile={16}>

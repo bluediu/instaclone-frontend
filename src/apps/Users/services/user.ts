@@ -19,6 +19,13 @@ export const updateUser = async (
   return data;
 };
 
+export const searchUsers = async (search: string): Promise<IUser[]> => {
+  const params = fn.generateUrlParams({ search: search || '' });
+
+  const { data } = await userApi.get<IUser[]>(`/search/${params}`);
+  return data;
+};
+
 /* ==== Avatar ==== */
 export const uploadAvatar = async (
   username: string,

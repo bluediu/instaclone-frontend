@@ -5,10 +5,13 @@ import * as Yup from 'yup';
 import { useFormik } from 'formik';
 
 /* Hooks */
-import { useUI } from '../../../hooks';
 import { useDropzone } from 'react-dropzone';
+
+import { useUI } from '../../../hooks';
 import { useAuth } from '../../Users/hooks';
-import { useCreatePub, usePubContext, useUpdatePub } from './posts';
+
+import { usePubContext } from './usePubContext';
+import { useCreatePub, useUpdatePub } from './publications';
 
 interface IFile {
   file?: File;

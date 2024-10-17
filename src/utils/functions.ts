@@ -40,3 +40,20 @@ export const createFormData = <T>(data: T): FormData => {
 
   return formData;
 };
+
+/**
+ * Generate a URL-encoded query string from an object of key-value pairs.
+ */
+export const generateUrlParams = (
+  items: Record<string, string | number | undefined>
+): string => {
+  // Params management.
+  const params = new URLSearchParams();
+
+  for (const prop in items) {
+    const value = items[prop];
+    if (value) params.append(prop, value.toString());
+  }
+
+  return `?${params.toString()}`;
+};

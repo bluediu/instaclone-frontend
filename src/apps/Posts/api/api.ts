@@ -8,7 +8,18 @@ export const pubApi = axios.create({
   headers: {},
 });
 
+export const likeApi = axios.create({
+  baseURL: `${import.meta.env.VITE_API_URL}/api/posts/like`,
+  headers: {},
+});
+
 pubApi.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  const token = localStorage.getItem(TOKEN);
+  if (token) config.headers.set('Authorization', `Bearer ${token}`);
+  return config;
+});
+
+likeApi.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const token = localStorage.getItem(TOKEN);
   if (token) config.headers.set('Authorization', `Bearer ${token}`);
   return config;
