@@ -49,6 +49,17 @@ export const translation = {
     profile: {
       settingAction: 'Edit Profile',
       avatarAction: 'Change Profile Photo',
+      follow: 'Follow',
+      unfollow: 'Unfollow',
+      modal: {
+        followers: 'Followers',
+        following: 'Following',
+      },
+      count: {
+        post: 'posts',
+        followers: 'followers',
+        following: 'following',
+      },
       form: {
         firstName: 'First name',
         lastName: 'Last name',
@@ -84,6 +95,7 @@ export const translation = {
     },
     posts: {
       title: 'POSTS',
+      notPosts: 'No posts available',
       loader: 'Loading publications...',
       preview: {
         action: {
@@ -170,6 +182,17 @@ export const translation = {
     profile: {
       settingAction: 'Editar Perfil',
       avatarAction: 'Cambiar Foto de Perfil',
+      follow: 'Seguir',
+      unfollow: 'Dejar de seguir',
+      modal: {
+        followers: 'Seguidores',
+        following: 'Seguidos',
+      },
+      count: {
+        post: 'publicaciones',
+        followers: 'seguidores',
+        following: 'seguidos',
+      },
       form: {
         firstName: 'Nombre',
         lastName: 'Apellido',
@@ -205,6 +228,7 @@ export const translation = {
     },
     posts: {
       title: 'PUBLICACIONES',
+      notPosts: 'No hay publicaciones disponibles',
       loader: 'Cargando publicaciones...',
       preview: {
         action: {

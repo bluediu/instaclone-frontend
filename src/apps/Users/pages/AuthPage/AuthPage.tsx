@@ -1,20 +1,19 @@
-import { useState } from 'react';
-
 /* Components */
 import { Container, Dropdown, Image } from 'semantic-ui-react';
 import { LoginForm, SignUp } from '../../components/Auth';
 
 /* Hooks */
+import { useAuth } from '../../hooks';
 import { useUI } from '../../../../hooks';
 
 /* Types */
 import { TLang } from '../../../../types';
 
-/* Statics */
-import LOGO from '/img/instaclone.png';
-
 /* Constants */
 import { LANG } from '../../../../constants';
+
+/* Statics */
+import LOGO from '/img/instaclone.png';
 
 import './AuthPage.scss';
 
@@ -28,7 +27,7 @@ export const AuthPage = () => {
 
   const { auth } = data;
 
-  const [showLogin, setShowLogin] = useState(true);
+  const { switchAuthPage, handleAuthPage } = useAuth();
 
   const defaultValue =
     localStorage.getItem(LANG) === 'en'
@@ -39,25 +38,21 @@ export const AuthPage = () => {
     <Container fluid className="auth">
       <Image src={LOGO} alt="Logo" />
       <section className="container-form">
-        {showLogin ? <LoginForm /> : <SignUp />}
+        {switchAuthPage ? <LoginForm /> : <SignUp />}
       </section>
 
       <section className="change-form">
         <p>
-          {showLogin ? (
+          {switchAuthPage ? (
             <>
               {auth.noAccount.title}
-              <span onClick={() => setShowLogin(!showLogin)}>
-                {auth.noAccount.btn}
-              </span>
+              <span onClick={handleAuthPage}>{auth.noAccount.btn}</span>
             </>
           ) : (
             <>
               {auth.signInAccount.title}
 
-              <span onClick={() => setShowLogin(!showLogin)}>
-                {auth.signInAccount.btn}
-              </span>
+              <span onClick={handleAuthPage}>{auth.signInAccount.btn}</span>
             </>
           )}
         </p>
