@@ -1,8 +1,9 @@
 /* Components */
-import { Button } from 'semantic-ui-react';
+import { Button, Icon } from 'semantic-ui-react';
 
 /* Hooks */
 import { useUI } from '../../../../../hooks';
+import { useAddFollow, useIsFollowing, useUnfollow } from '../../../hooks';
 
 import './Header.scss';
 
@@ -13,16 +14,50 @@ interface IProps {
 }
 
 export const Header = (props: IProps) => {
+  const { username, authUsername, onChangeProfile } = props;
+
+  // Hooks
   const { data } = useUI();
   const { profile } = data;
 
-  const { username, authUsername, onChangeProfile } = props;
+  // Query
+  const isFollowingQuery = useIsFollowing(username);
 
-  const isFollow = true;
+  // Mutations
+  const addFollowMutation = useAddFollow(username);
+  const unfollowMutation = useUnfollow(username);
 
-  const followBtn = () => {
-    if (isFollow) return <Button content="Follow" size="tiny" primary />;
-    else return <Button content="Unfollow" size="tiny" />;
+  const followButton = () => {
+    if (isFollowingQuery.isLoading) {
+      return (
+        <section>
+          <Icon loading name="spinner" /> checking...
+        </section>
+      );
+    }
+
+    const { data } = isFollowingQuery;
+
+    if (data!.is_following) {
+      return (
+        <Button
+          content={profile.unfollow}
+          size="tiny"
+          loading={unfollowMutation.isPending}
+          onClick={() => unfollowMutation.mutate()}
+        />
+      );
+    } else {
+      return (
+        <Button
+          content={profile.follow}
+          size="tiny"
+          primary
+          loading={addFollowMutation.isPending}
+          onClick={() => addFollowMutation.mutate()}
+        />
+      );
+    }
   };
 
   return (
@@ -37,7 +72,7 @@ export const Header = (props: IProps) => {
           onClick={onChangeProfile}
         />
       ) : (
-        followBtn()
+        followButton()
       )}
     </section>
   );

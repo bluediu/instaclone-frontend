@@ -15,7 +15,7 @@ import { userActions } from '../../services';
 import { TOKEN } from '../../../../constants';
 
 export const useSignUpMutation = () => {
-  const { login } = useAuth();
+  const { handleAuthPage } = useAuth();
 
   const mutation = useMutation({
     mutationKey: ['userCreate'],
@@ -25,7 +25,7 @@ export const useSignUpMutation = () => {
       localStorage.setItem(TOKEN, data.access);
 
       // Save user auth info in context API.
-      login(data);
+      handleAuthPage();
 
       // Show success message.
       toast.success('User successfully created.');

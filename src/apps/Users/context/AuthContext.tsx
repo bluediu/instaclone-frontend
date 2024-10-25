@@ -14,12 +14,16 @@ import { TOKEN } from '../../../constants';
 
 interface IAuthContextType {
   auth: undefined | IUserToken;
+  switchAuthPage: boolean;
+  handleAuthPage: () => void;
   login: (user: IUserToken) => void;
   logout: () => void;
 }
 
 export const AuthContext = createContext<IAuthContextType>({
   auth: undefined,
+  switchAuthPage: true,
+  handleAuthPage: () => {},
   login() {},
   logout() {},
 });
@@ -29,6 +33,7 @@ export const AuthProvider: TProviderChildren = ({ children }) => {
   const token: string | null = localStorage.getItem(TOKEN);
 
   const [auth, setAuth] = useState<undefined | IUserToken>(undefined);
+  const [switchAuthPage, setSwitchAuthPage] = useState(true);
 
   useLayoutEffect(() => {
     try {
@@ -59,14 +64,20 @@ export const AuthProvider: TProviderChildren = ({ children }) => {
     setAuth(undefined);
   };
 
+  const handleAuthPage = () => setSwitchAuthPage(!switchAuthPage);
+
   // `useMemo` to optimize re-renders if authData is passed to other components.
   const value: IAuthContextType = useMemo(
     () => ({
       auth,
+      switchAuthPage,
+
       login,
       logout,
+      handleAuthPage,
     }),
-    [auth]
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [auth, switchAuthPage]
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

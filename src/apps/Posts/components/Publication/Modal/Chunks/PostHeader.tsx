@@ -8,6 +8,7 @@ import { ModalBasic } from '../../../../../../shared';
 
 /* Hooks */
 import { usePubContext } from '../../../../hooks';
+import { useAuth } from '../../../../../Users/hooks';
 import { useBasicModal, useModal } from '../../../../../../hooks';
 
 /* Utils */
@@ -24,6 +25,8 @@ interface IProps {
 }
 
 export const PostHeader = ({ showCloseButton = true }: IProps) => {
+  const { auth } = useAuth();
+
   const { selectedPublication: pub, closePublicationModal } = usePubContext();
   const { user } = pub;
 
@@ -45,6 +48,8 @@ export const PostHeader = ({ showCloseButton = true }: IProps) => {
   } = useBasicModal();
 
   const openOptions = () => {
+    if (user.username !== auth?.username) return;
+
     openModal(
       '',
       <HeaderOptions

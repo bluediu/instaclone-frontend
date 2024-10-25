@@ -1,6 +1,8 @@
 /* Api */
-import { fn } from '../../../utils';
 import { userApi } from '../api';
+
+/* Utils */
+import { fn } from '../../../utils';
 
 /* Interfaces */
 import { IUpdateUser, IUploadAvatar, IUser } from '../interfaces';

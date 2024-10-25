@@ -6,6 +6,7 @@ import { Grid, Image } from 'semantic-ui-react';
 /* Components */
 import { Extra } from './Extra';
 import { Header } from './Header';
+import { Relations } from './Relations';
 import { Avatar, Settings } from './Forms';
 import { NoUserFound } from './NoUserFound';
 import { ModalBasic } from '../../../../shared';
@@ -20,8 +21,6 @@ import { TSize } from '../../../../types';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';
-
-import { Followers } from './Followers';
 
 import './Profile.scss';
 
@@ -71,6 +70,8 @@ export const Profile = ({ username, totalPubs }: IProps) => {
   };
 
   const onChangeAvatar = () => {
+    if (username !== auth?.username) return;
+
     setPadding(false);
     openModal(
       profile.avatarAction,
@@ -98,7 +99,7 @@ export const Profile = ({ username, totalPubs }: IProps) => {
             authUsername={auth!.username}
             onChangeProfile={onChangeProfile}
           />
-          <Followers totalPubs={totalPubs!} />
+          <Relations username={username} totalPubs={totalPubs!} />
           <Extra data={query.data!} />
         </Grid.Column>
       </Grid>

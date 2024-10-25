@@ -1,2 +1,1 @@
-export { api } from './api';
-export { userApi } from './api';
+export { api, userApi, followApi } from './api';

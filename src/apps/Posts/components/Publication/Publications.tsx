@@ -42,6 +42,9 @@ export const Publications = ({ pubs }: IProps) => {
         ))}
       </Grid>
 
+      {!pubs.length && (
+        <h5 className="text-center text-secondary">{data.posts.notPosts}</h5>
+      )}
       <PublicationModal />
     </main>
   );

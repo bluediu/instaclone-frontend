@@ -22,6 +22,7 @@ import { usersPath } from '../../../../Users/constants';
 import NO_IMAGE from '/img/avatar.png';
 
 import './Search.scss';
+
 interface ISearchResult {
   key: number;
   title: string;
