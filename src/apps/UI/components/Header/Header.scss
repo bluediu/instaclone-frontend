@@ -7,6 +7,9 @@
   background-color: $background-light;
   z-index: 1;
 
+  position: sticky;
+  top: 0px;
+
   &__logo {
     display: flex !important;
     align-items: center;

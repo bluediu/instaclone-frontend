@@ -38,6 +38,7 @@ export const ModalUpload = (props: IProps) => {
       action,
       initialValues: { image: '', description: desc || '' },
       preview,
+      onClose,
     });
 
   /* Context */

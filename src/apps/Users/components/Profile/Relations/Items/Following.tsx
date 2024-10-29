@@ -22,7 +22,7 @@ export const Following = ({ username }: IProps) => {
   return (
     <div>
       {data!.map((item) => (
-        <Item item={item} />
+        <Item item={item} key={item.id} />
       ))}
     </div>
   );

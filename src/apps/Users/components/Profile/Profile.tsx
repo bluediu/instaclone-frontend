@@ -48,13 +48,7 @@ export const Profile = ({ username, totalPubs }: IProps) => {
     closeModal 
   } = useModal();
 
-  if (query.isLoading) {
-    return (
-      <section className="text-center mt-5">
-        <FeedLoader />
-      </section>
-    );
-  }
+  if (query.isLoading) return <FeedLoader />;
 
   if (query.isError) return <NoUserFound />;
 

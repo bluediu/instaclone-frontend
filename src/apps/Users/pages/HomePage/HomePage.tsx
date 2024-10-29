@@ -1,5 +1,8 @@
 /* Components */
-import { Button, Grid } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
+import { NotFollowing } from '../../components';
+import { Feed } from '../../../Posts/components/Feed';
+import { ProfileIcon } from '../../../Posts/components/Home';
 
 /* Hooks */
 import { useDynamicPageTitle } from '../../../../hooks';
@@ -12,14 +15,12 @@ const HomePage = () => {
   return (
     <Grid className="home">
       <Grid.Column className="home__left" computer={11} mobile={16}>
-        <h1>FEED</h1>
-        <Button primary>Click Here</Button>
+        <Feed />
       </Grid.Column>
 
       <Grid.Column className="home__right" computer={5}>
-        {/* <UserProfile /> */}
-        {/* <UserNotFollowing /> */}
-        <h3>USER</h3>
+        <ProfileIcon />
+        <NotFollowing />
       </Grid.Column>
     </Grid>
   );

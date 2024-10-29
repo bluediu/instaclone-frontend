@@ -1,0 +1,24 @@
+@import '../../../../sass/global.scss';
+
+.not-following {
+  display: flex;
+  flex-direction: column;
+  margin-top: 25px;
+
+  @media screen and (max-width: 988px) {
+    display: none;
+  }
+
+  h4 {
+    color: $font-grey;
+  }
+
+  &__user {
+    margin-top: 20px;
+    color: $font-dark;
+
+    img {
+      margin-right: 15px !important;
+    }
+  }
+}

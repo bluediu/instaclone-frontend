@@ -13,6 +13,19 @@ export const listPubs = async (username: string): Promise<IPublication[]> => {
   return data;
 };
 
+interface IQueryProps {
+  pageParam: number;
+}
+
+export const getPublicationsFeed = async ({
+  pageParam,
+}: IQueryProps): Promise<IPublication[]> => {
+  const params = fn.generateUrlParams({ page: pageParam || '' });
+
+  const { data } = await pubApi.get<IPublication[]>(`/get_feed/${params}`);
+  return data;
+};
+
 export const createPublication = async (
   pub: ICreatePub
 ): Promise<IPublication> => {

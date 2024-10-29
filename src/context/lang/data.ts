@@ -128,6 +128,13 @@ export const translation = {
         helpText: 'To replace the image just select a new one.',
       },
     },
+    home: {
+      noFeed: 'Start following your friends to see their posts',
+      suggestions: 'Suggestions for you',
+      profileIconLink: 'Go',
+      loading: 'Loading...',
+      loadingMore: 'Loading more...',
+    },
   },
   es: {
     auth: {
@@ -260,6 +267,13 @@ export const translation = {
         },
         helpText: 'Para remplazar la image solo seleccione una nueva.',
       },
+    },
+    home: {
+      noFeed: 'Comienza a seguir a tus amigos para ver sus publicaciones',
+      suggestions: 'Sugerencias para tí',
+      profileIconLink: 'Ir',
+      loading: 'Cargando...',
+      loadingMore: 'Cargando más...',
     },
   },
 };
