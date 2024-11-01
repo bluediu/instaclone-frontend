@@ -2,6 +2,7 @@ import { createContext, useLayoutEffect, useMemo, useState } from 'react';
 
 /* Libs */
 import { toast } from 'react-toastify';
+import { useQueryClient } from '@tanstack/react-query';
 
 /* Utils */
 import { fn } from '../../../utils';
@@ -30,6 +31,8 @@ export const AuthContext = createContext<IAuthContextType>({
 
 type TProviderChildren = React.FC<{ children: React.ReactNode }>;
 export const AuthProvider: TProviderChildren = ({ children }) => {
+  const queryClient = useQueryClient();
+
   const token: string | null = localStorage.getItem(TOKEN);
 
   const [auth, setAuth] = useState<undefined | IUserToken>(undefined);
@@ -53,6 +56,7 @@ export const AuthProvider: TProviderChildren = ({ children }) => {
       // Treat invalid token as expired, logout the user
       logout();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
   const login = async (user: IUserToken) => {
@@ -62,6 +66,9 @@ export const AuthProvider: TProviderChildren = ({ children }) => {
   const logout = () => {
     localStorage.removeItem(TOKEN);
     setAuth(undefined);
+
+    // Clean all queries on logout action.
+    queryClient.clear();
   };
 
   const handleAuthPage = () => setSwitchAuthPage(!switchAuthPage);

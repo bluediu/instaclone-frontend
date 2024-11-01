@@ -1,0 +1,46 @@
+@import '../../../../../sass/global.scss';
+
+.user__profile {
+  margin-top: 2.7rem;
+  position: sticky;
+  top: 10px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  .ui.avatar.image {
+    width: 2.7rem;
+    height: 2.7rem;
+    object-fit: cover;
+  }
+
+  &-info {
+    display: flex;
+
+    &-name {
+      padding-left: 1.2rem;
+      span {
+        display: block;
+      }
+    }
+
+    &-name span:first-child {
+      font-size: 1.1rem;
+      color: $font-dark;
+      font-weight: 600;
+    }
+
+    &-name span:last-child {
+      font-size: 1rem;
+      color: $font-grey;
+    }
+  }
+
+  &-link {
+    color: $action;
+  }
+
+  @media screen and (max-width: 988px) {
+    display: none;
+  }
+}

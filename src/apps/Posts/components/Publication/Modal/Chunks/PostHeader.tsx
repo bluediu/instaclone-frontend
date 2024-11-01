@@ -48,8 +48,6 @@ export const PostHeader = ({ showCloseButton = true }: IProps) => {
   } = useBasicModal();
 
   const openOptions = () => {
-    if (user.username !== auth?.username) return;
-
     openModal(
       '',
       <HeaderOptions
@@ -79,12 +77,14 @@ export const PostHeader = ({ showCloseButton = true }: IProps) => {
       </section>
 
       <section className="cursor-pointer">
-        <Icon
-          name="ellipsis horizontal"
-          size="large"
-          style={{ opacity: '0.7' }}
-          onClick={openOptions}
-        />
+        {user.username === auth?.username && (
+          <Icon
+            name="ellipsis horizontal"
+            size="large"
+            style={{ opacity: '0.7' }}
+            onClick={openOptions}
+          />
+        )}
 
         <ModalBasic
           show={showModal}

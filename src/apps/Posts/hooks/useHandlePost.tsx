@@ -22,6 +22,7 @@ interface IProps {
   action: 'create' | 'update';
   initialValues: { image: string; description: string };
   preview?: string;
+  onClose: () => void;
 }
 
 const accept = {
@@ -32,7 +33,7 @@ const accept = {
 };
 
 export const useHandlePost = (props: IProps) => {
-  const { action, initialValues, preview } = props;
+  const { action, initialValues, preview, onClose } = props;
 
   /* Context */
   const { data } = useUI();
@@ -107,7 +108,7 @@ export const useHandlePost = (props: IProps) => {
   const isPending = createPubMutation.isPending || updatePubMutation.isPending;
 
   if (createPubMutation.isSuccess || createPubMutation.isError) {
-    closePublicationModal();
+    onClose();
   }
 
   if (updatePubMutation.isSuccess || updatePubMutation.isError) {

@@ -30,6 +30,11 @@ export const getFollowing = async (username: string): Promise<IFollow[]> => {
   return data;
 };
 
+export const getNotFollowing = async (): Promise<IFollow[]> => {
+  const { data } = await followApi.get<IFollow[]>('/not_following/');
+  return data;
+};
+
 export const addFollow = async (username: string): Promise<void> => {
   await followApi.post(`/${username}/add_follow/`);
 };

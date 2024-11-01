@@ -1,0 +1,59 @@
+@import '../../../../sass/global.scss';
+
+.feed {
+  padding-top: 25px;
+  overflow-y: scroll;
+  width: 90%;
+
+  @media screen and (max-width: 988px) {
+    width: 100%;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &__box {
+    margin-bottom: 30px;
+    border-top: 1px solid $border-grey;
+
+    &-user {
+      padding: 15px 3px !important;
+      color: $font-dark;
+
+      img {
+        margin-right: 15px !important;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+
+    &-photo {
+      height: 540px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      &:hover {
+        cursor: pointer;
+        opacity: 0.95;
+      }
+
+      @media screen and (max-width: 988px) {
+        height: 300px;
+      }
+    }
+
+    &-actions {
+      padding: 10px 0;
+    }
+
+    &-form {
+      > form {
+        position: relative !important;
+      }
+    }
+  }
+}

@@ -15,25 +15,31 @@ import {
 /* Interfaces */
 import { IPubProps } from '../../../../../interfaces';
 
-export const PostActions = ({ pub }: IPubProps) => {
+interface IProps extends IPubProps {
+  code?: string;
+}
+
+export const PostActions = ({ pub, code }: IProps) => {
   /* Context */
   const { data: lang } = useUI();
   const { action } = lang.posts.preview;
 
   const { selectedPublication } = usePubContext();
-  const { code } = selectedPublication;
+  const { code: selectedCode } = selectedPublication;
+
+  const publication = code ?? selectedCode;
 
   /* Queries */
   const {
     data: likeData,
     isError: isLikeError,
     isLoading: isLikeLoading,
-  } = useLiked(code);
-  const count = useCountLikes(code);
+  } = useLiked(publication);
+  const count = useCountLikes(publication);
 
   /* Mutations */
-  const likePostMutation = useLike(code);
-  const unlikePostMutation = useRemoveLike(code);
+  const likePostMutation = useLike(publication);
+  const unlikePostMutation = useRemoveLike(publication);
 
   /* Validations */
   const hasUserLiked = likeData?.liked;
