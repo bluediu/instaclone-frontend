@@ -1,6 +1,7 @@
 /* Components */
 import { Link } from 'react-router-dom';
-import { Icon, Image } from 'semantic-ui-react';
+import { Image } from 'semantic-ui-react';
+import { SectionSpinner } from '../../../UI/components';
 
 /* Hooks */
 import { useUI } from '../../../../hooks';
@@ -23,12 +24,7 @@ export const NotFollowing = () => {
 
   const query = useNotFollowing();
 
-  if (query.isLoading)
-    return (
-      <section className="text-center my-5">
-        <Icon loading name="spinner" />
-      </section>
-    );
+  if (query.isLoading) return <SectionSpinner />;
 
   return (
     <section className="not-following">

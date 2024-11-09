@@ -29,6 +29,7 @@ export const useUnfollow = (username: string) => {
 
       queryClient.invalidateQueries({ queryKey: ['isFollowing', username] });
       queryClient.invalidateQueries({ queryKey: ['followCount', username] });
+      queryClient.invalidateQueries({ queryKey: ['publications', 'feed'] });
     },
     onError: (error) => {
       toast.error(<Errors error={error} />, { autoClose: false });

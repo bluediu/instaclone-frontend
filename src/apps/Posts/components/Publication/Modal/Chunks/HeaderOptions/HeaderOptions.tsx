@@ -1,9 +1,10 @@
 /* Components */
-import { Button, Icon } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
+import { SectionSpinner } from '../../../../../../UI/components';
 
 /* Hooks */
 import { useUI } from '../../../../../../../hooks';
-import { useDeletePub } from '../../../../../hooks';
+import { useDeletePub, usePubContext } from '../../../../../hooks';
 
 /* Interfaces */
 import { IPublication } from '../../../../../interfaces';
@@ -23,6 +24,8 @@ export const HeaderOptions = (props: IProps) => {
   const { data } = useUI();
   const { opts } = data.posts.preview;
 
+  const { closePublicationModal } = usePubContext();
+
   /* Mutations */
   const deleteMutation = useDeletePub(pub.code);
 
@@ -35,17 +38,14 @@ export const HeaderOptions = (props: IProps) => {
   };
 
   /* Validations */
-  if (deleteMutation.isSuccess || deleteMutation.isError) closeModal();
+  if (deleteMutation.isSuccess || deleteMutation.isError)
+    closePublicationModal();
 
   const isDeleting = deleteMutation.isPending || deleteMutation.isPending;
 
   return (
     <>
-      {isDeleting && (
-        <section className="text-center my-5">
-          <Icon loading name="spinner" /> Processing...
-        </section>
-      )}
+      {isDeleting && <SectionSpinner text="Processing..." />}
 
       <section className="header-options">
         <Button disabled={isDeleting} onClick={onUpdate}>

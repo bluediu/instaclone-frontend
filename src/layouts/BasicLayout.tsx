@@ -1,14 +1,9 @@
-import { ReactElement } from 'react';
-
 /* Components */
 import { Container } from 'semantic-ui-react';
 import { Header } from '../apps/UI/components';
+import { IReactNodeProps } from '../interfaces';
 
-interface IProps {
-  children: ReactElement | ReactElement[];
-}
-
-export const BasicLayout = ({ children }: IProps) => {
+export const BasicLayout = ({ children }: IReactNodeProps) => {
   return (
     <>
       <Header />

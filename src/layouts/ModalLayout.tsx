@@ -1,19 +1,16 @@
-import { ReactElement } from 'react';
-
 /* Components */
 import { Modal, TransitionablePortal } from 'semantic-ui-react';
 
 /* Interfaces */
-import { IStylesProps } from '../interfaces';
+import { IReactNodeProps, IStylesProps } from '../interfaces';
 
 /* Types */
 import { TSize } from '../types';
 
-interface IProps extends IStylesProps {
+interface IProps extends IStylesProps, IReactNodeProps {
   show: boolean;
   size?: TSize;
   onClose: () => void;
-  children: ReactElement | ReactElement[];
 }
 
 export const ModalLayout = (props: IProps) => {
