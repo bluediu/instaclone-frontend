@@ -107,6 +107,12 @@ export const translation = {
           placeholder: 'Add a comment...',
           btn: 'Post',
         },
+        comment: {
+          title: 'Comments',
+          link: 'View all comments',
+          notFound: 'No Comments Yet',
+          notFoundSubtitle: 'Start the conversation.',
+        },
         opts: {
           delete: 'Delete',
           edit: 'Edit',
@@ -246,6 +252,12 @@ export const translation = {
         form: {
           placeholder: 'Añade un comentario...',
           btn: 'Publicar',
+        },
+        comment: {
+          title: 'Comentarios',
+          link: 'Ver comentarios',
+          notFound: 'No hay comentarios',
+          notFoundSubtitle: 'Inicia la conversación.',
         },
         opts: {
           delete: 'Eliminar',

@@ -1,10 +1,10 @@
 /* Components */
 import { Grid, Segment } from 'semantic-ui-react';
+import { CommentForm, Comments } from '../../../Comments';
 import {
   PostHeader,
   PostDescription,
   PostImage,
-  CommentForm,
   PostActions,
   PostDate,
 } from '../Chunks';
@@ -20,6 +20,7 @@ export const Desktop = () => {
   const { toggleImageSize, handleToggleSize } = useImgToggle();
 
   return (
+    // TODO: Use component pattern
     <Grid>
       <Grid.Column
         className="modal-publication__left"
@@ -47,12 +48,7 @@ export const Desktop = () => {
         <Segment vertical className="comment-box-size">
           <PostDescription pub={pub} />
 
-          {!pub.description && (
-            <section className="d-flex flex-column align-items-center justify-content-center h-100">
-              <h2>No Comments Yet</h2>
-              <span>Start the conversation.</span>
-            </section>
-          )}
+          {!pub.description && <Comments publication={pub.code} />}
         </Segment>
 
         {/* Actions */}

@@ -13,6 +13,11 @@ export const likeApi = axios.create({
   headers: {},
 });
 
+export const commentApi = axios.create({
+  baseURL: `${import.meta.env.VITE_API_URL}/api/posts/comment`,
+  headers: {},
+});
+
 pubApi.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const token = localStorage.getItem(TOKEN);
   if (token) config.headers.set('Authorization', `Bearer ${token}`);
@@ -20,6 +25,12 @@ pubApi.interceptors.request.use((config: InternalAxiosRequestConfig) => {
 });
 
 likeApi.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  const token = localStorage.getItem(TOKEN);
+  if (token) config.headers.set('Authorization', `Bearer ${token}`);
+  return config;
+});
+
+commentApi.interceptors.request.use((config: InternalAxiosRequestConfig) => {
   const token = localStorage.getItem(TOKEN);
   if (token) config.headers.set('Authorization', `Bearer ${token}`);
   return config;
