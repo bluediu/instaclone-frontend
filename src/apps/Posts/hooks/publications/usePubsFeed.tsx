@@ -2,10 +2,10 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 
 /* Services */
-import { postActions } from '../../services';
+import { postActions } from '@/apps/Posts/services';
 
 /* Constants */
-import { STALE_TIME } from '../../../../constants';
+import { STALE_TIME } from '@/constants';
 
 interface IProps {
   page: number;

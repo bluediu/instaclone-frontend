@@ -6,8 +6,8 @@ import { useFormik } from 'formik';
 import { Button, Form } from 'semantic-ui-react';
 
 /* Hooks */
-import { useUI } from '../../../../../hooks';
-import { useLoginMutation } from '../../../hooks';
+import { useUI } from '@/hooks';
+import { useLoginMutation } from '@/apps/Users/hooks';
 
 import './LoginForm.scss';
 

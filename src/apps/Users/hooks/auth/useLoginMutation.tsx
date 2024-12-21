@@ -1,5 +1,5 @@
 /* Components  */
-import { Errors } from '../../../../shared';
+import { Errors } from '@/shared';
 
 /* Hooks  */
 import { useAuth } from '../useAuth';
@@ -7,10 +7,10 @@ import { toast } from 'react-toastify';
 import { useMutation } from '@tanstack/react-query';
 
 /* Services */
-import { userActions } from '../../services';
+import { userActions } from '@/apps/Users/services';
 
 /* Constants */
-import { TOKEN } from '../../../../constants';
+import { TOKEN } from '@/constants';
 
 export const useLoginMutation = () => {
   const { login } = useAuth();

@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
 /* Hooks */
-import { useUI } from '../../../hooks';
+import { useUI } from '@/hooks';
 
 import 'dayjs/locale/es';
 

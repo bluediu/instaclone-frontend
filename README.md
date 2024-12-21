@@ -1,50 +1,86 @@
-# React + TypeScript + Vite
+# Instaclone 📷
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Instaclone is a photo-sharing social platform inspired by Instagram. It allows users to share their favorite moments, follow others, and engage with content through likes and comments. This project is built with React and demonstrates the implementation of key social media features.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Photo Sharing:** Users can upload and display their favorite images.
+- **User Profiles:** View personalized user profiles with photo grids.
+- **Follow System:** Follow other users to see their posts in your feed.
+- **Likes and Comments:** Interact with posts through likes and comments.
+- **Search Functionality:** Find users by their usernames or full names.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend:** React with modern hooks and components.
+- **Styling:** SASS for styling with responsive design.
+- **State Management:** Context API for managing global state.
+- **Backend API:** Django Rest Framework (DRF) for handling user authentication and data.
+- **Database:** PostgreSQL for storing user data, posts, and interactions.
+- **Image Hosting:** Cloudinary for managing and hosting images.
+- **Authentication:** JWT-based authentication for secure login and session management.
 
-- Configure the top-level `parserOptions` property like this:
+## Installation and Setup
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/bluediu/instaclone-frontend.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd instaclone
+   ```
+
+3. Install dependencies:
+
+   ```bash
+   yarn install
+   ```
+
+4. Start the development server:
+
+   ```bash
+   yarn dev
+   ```
+
+5. Configure the backend API and database connection as per your requirements.
+
+## Project Structure
+
+```
+src/
+├── apps/
+│   ├── Posts/          # Module for managing posts
+│   ├── UI/             # Shared user interface components
+│   ├── Users/          # Module for user management (authentication, profiles, etc.)
+│       ├── api/        # API services specific to users
+│       ├── components/ # Reusable components within the Users module
+│       ├── pages/      # Pages related to user functionalities (profiles, settings, etc.)
+│       ├── hooks/      # Custom hooks related to user logic
+│       ├── context/    # Context providers for user-related state
+│       ├── interfaces/ # TypeScript interfaces for user-related types
+│       ├── services/   # Business logic and services for users
+├── constants/          # Application-wide constants
+├── context/            # Global state management using React Context
+├── hooks/              # Reusable custom hooks
+├── interfaces/         # Global TypeScript interface definitions
+├── layouts/            # Layout components like headers, footers, etc.
+├── routes/             # Route definitions and navigation structure
+├── sass/               # Global and modular SCSS styles
+├── shared/             # Components shared across different modules
+├── types/              # Global TypeScript type definitions
+├── utils/              # Utility functions and helpers
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Backend project 🗝️
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+https://github.com/bluediu/instaclone-backend
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## License
+
+This project is licensed under the MIT License. Feel free to use, modify, and distribute it.
+
+---

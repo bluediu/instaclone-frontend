@@ -2,8 +2,9 @@
 import { Button, Icon } from 'semantic-ui-react';
 
 /* Hooks */
-import { useUI } from '../../../../../hooks';
-import { useAddFollow, useIsFollowing, useUnfollow } from '../../../hooks';
+import { useUI } from '@/hooks';
+
+import { useAddFollow, useIsFollowing, useUnfollow } from '@/apps/Users/hooks';
 
 import './Header.scss';
 

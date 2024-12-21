@@ -2,7 +2,7 @@
 import { Image } from 'semantic-ui-react';
 
 /* Interfaces */
-import { IPublication } from '../../../interfaces';
+import { IPublication } from '@/apps/Posts/interfaces';
 
 import './Publication.scss';
 

@@ -1,5 +1,5 @@
 /* Layouts */
-import { ModalLayout } from '../../../../../layouts';
+import { ModalLayout } from '@/layouts';
 
 /* Components */
 import {
@@ -13,8 +13,8 @@ import {
 } from 'semantic-ui-react';
 
 /* Hooks */
-import { useUI } from '../../../../../hooks';
-import { useHandlePost } from '../../../hooks';
+import { useUI } from '@/hooks';
+import { useHandlePost } from '@/apps/Posts/hooks';
 
 import './ModalUpload.scss';
 
@@ -30,9 +30,10 @@ interface IProps {
 }
 
 export const ModalUpload = (props: IProps) => {
-  /* Props */
+  // Props
   const { action, show, onClose, preview, desc } = props;
 
+  // Formik form state and methods
   const { formik, fileUpload, isPending, getRootProps, getInputProps } =
     useHandlePost({
       action,
@@ -41,7 +42,7 @@ export const ModalUpload = (props: IProps) => {
       onClose,
     });
 
-  /* Context */
+  // Context
   const { data } = useUI();
   const { create } = data.posts;
 

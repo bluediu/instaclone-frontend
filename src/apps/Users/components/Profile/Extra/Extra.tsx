@@ -2,7 +2,7 @@
 import { Icon } from 'semantic-ui-react';
 
 /* Interfaces */
-import { IUser } from '../../../interfaces';
+import { IUser } from '@/apps/Users/interfaces';
 
 export const Extra = ({ data }: { data: IUser }) => {
   const truncatedWebsite =

@@ -1,18 +1,18 @@
 /* Components */
 import { Link } from 'react-router-dom';
-import { FeedLoader } from '../../../UI/components';
+import { FeedLoader } from '@/apps/UI/components';
 import { Button, Icon, Image } from 'semantic-ui-react';
 import { Modal as PublicationModal, PostActions } from '../Publication/Modal';
 
 /* Hooks */
-import { useUI } from '../../../../hooks';
-import { usePubContext, usePubsFeed } from '../../hooks';
+import { useUI } from '@/hooks';
+import { usePubContext, usePubsFeed } from '@/apps/Posts/hooks';
 
 /* Utils */
-import { generateUrl } from '../../../../utils';
+import { generateUrl } from '@/utils';
 
 /* Constants */
-import { usersPath } from '../../../Users/constants';
+import { usersPath } from '@/apps/Users/constants';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';

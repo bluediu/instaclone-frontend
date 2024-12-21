@@ -4,20 +4,23 @@ import { useState } from 'react';
 import { Grid, Image } from 'semantic-ui-react';
 
 /* Components */
+import { ModalBasic } from '@/shared';
+
 import { Extra } from './Extra';
 import { Header } from './Header';
 import { Relations } from './Relations';
 import { Avatar, Settings } from './Forms';
 import { NoUserFound } from './NoUserFound';
-import { ModalBasic } from '../../../../shared';
-import { FeedLoader } from '../../../UI/components';
+
+import { FeedLoader } from '@/apps/UI/components';
 
 /* Hooks */
-import { useAuth, useUser } from '../../hooks';
-import { useModal, useUI } from '../../../../hooks';
+import { useModal, useUI } from '@/hooks';
+
+import { useAuth, useUser } from '@/apps/Users/hooks';
 
 /* Types */
-import { TSize } from '../../../../types';
+import { TSize } from '@/types';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';

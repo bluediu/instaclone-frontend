@@ -1,15 +1,16 @@
 /* Components */
+import { ModalLayout } from '@/layouts';
+
 import { Icon, Modal } from 'semantic-ui-react';
-import { ModalLayout } from '../../layouts';
 
 /* Hooks */
-import { useDeviceType } from '../../hooks';
+import { useDeviceType } from '@/hooks';
 
 /* Interfaces */
-import { IReactNodeProps } from '../../interfaces';
+import { IReactNodeProps } from '@/interfaces';
 
 /* Types */
-import { TSize } from '../../types';
+import { TSize } from '@/types';
 
 interface IProps extends IReactNodeProps {
   padding: boolean;

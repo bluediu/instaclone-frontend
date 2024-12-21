@@ -2,16 +2,16 @@
 import { toast } from 'react-toastify';
 
 /* Components  */
-import { Errors } from '../../../../shared';
+import { Errors } from '@/shared';
 
 /* Hooks  */
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 /* Interfaces */
-import { IUploadAvatar } from '../../interfaces';
+import { IUploadAvatar } from '@/apps/Users/interfaces';
 
 /* Services */
-import { userActions } from '../../services';
+import { userActions } from '@/apps/Users/services';
 
 export const useUploadAvatar = (username: string) => {
   const queryClient = useQueryClient();

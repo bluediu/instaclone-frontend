@@ -1,11 +1,14 @@
 /* Components */
-import { Profile } from '../../components/Profile';
-import { Publications, Loading } from '../../../Posts/components/Publication';
+import { Profile } from '@/apps/Users/components/Profile';
+
+import { Publications, Loading } from '@/apps/Posts/components/Publication';
 
 /* Hooks */
 import { useParams } from 'react-router-dom';
-import { usePubs } from '../../../Posts/hooks';
-import { useDynamicPageTitle } from '../../../../hooks';
+
+import { useDynamicPageTitle } from '@/hooks';
+
+import { usePubs } from '@/apps/Posts/hooks';
 
 const ProfilePage = () => {
   const { username } = useParams();

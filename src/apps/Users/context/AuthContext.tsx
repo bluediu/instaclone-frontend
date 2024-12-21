@@ -5,13 +5,13 @@ import { toast } from 'react-toastify';
 import { useQueryClient } from '@tanstack/react-query';
 
 /* Utils */
-import { fn } from '../../../utils';
+import { fn } from '@/utils';
 
 /* Interfaces */
 import { IUserToken } from '../interfaces';
 
 /* Constants */
-import { TOKEN } from '../../../constants';
+import { TOKEN } from '@/constants';
 
 interface IAuthContextType {
   auth: undefined | IUserToken;

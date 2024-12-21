@@ -1,13 +1,13 @@
 /* Components */
 import { Button } from 'semantic-ui-react';
-import { SectionSpinner } from '../../../../../../UI/components';
+import { SectionSpinner } from '@/apps/UI/components';
 
 /* Hooks */
-import { useUI } from '../../../../../../../hooks';
-import { useDeletePub, usePubContext } from '../../../../../hooks';
+import { useUI } from '@/hooks';
+import { useDeletePub, usePubContext } from '@/apps/Posts/hooks';
 
 /* Interfaces */
-import { IPublication } from '../../../../../interfaces';
+import { IPublication } from '@/apps/Posts/interfaces';
 
 import './HeaderOptions.scss';
 

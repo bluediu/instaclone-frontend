@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 /* Services */
-import { userActions } from '../../services';
+import { userActions } from '@/apps/Users/services';
 
 export const useFollowers = (username: string) => {
   const query = useQuery({

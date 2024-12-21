@@ -7,8 +7,9 @@ import { useFormik } from 'formik';
 /* Hooks */
 import { useDropzone } from 'react-dropzone';
 
-import { useUI } from '../../../hooks';
-import { useAuth } from '../../Users/hooks';
+import { useUI } from '@/hooks';
+
+import { useAuth } from '@/apps/Users/hooks';
 
 import { usePubContext } from './usePubContext';
 import { useCreatePub, useUpdatePub } from './publications';
@@ -35,7 +36,7 @@ const accept = {
 export const useHandlePost = (props: IProps) => {
   const { action, initialValues, preview, onClose } = props;
 
-  /* Context */
+  // Context
   const { data } = useUI();
 
   const { auth } = useAuth();
@@ -43,16 +44,16 @@ export const useHandlePost = (props: IProps) => {
 
   const { selectedPublication: pub, closePublicationModal } = usePubContext();
 
-  /* States */
+  // States
   const [fileUpload, setFileUpload] = useState<IFile | undefined>(
     preview ? { preview } : undefined
   );
 
-  /* Mutation */
+  // Mutation
   const createPubMutation = useCreatePub();
   const updatePubMutation = useUpdatePub(pub.code);
 
-  /* Forms */
+  // Forms
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object({
@@ -79,7 +80,7 @@ export const useHandlePost = (props: IProps) => {
     },
   });
 
-  /* Dropzone */
+  // Dropzone
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
       const file = acceptedFiles[0];
@@ -107,7 +108,13 @@ export const useHandlePost = (props: IProps) => {
 
   const isPending = createPubMutation.isPending || updatePubMutation.isPending;
 
+  // Mutation behavior
   if (createPubMutation.isSuccess || createPubMutation.isError) {
+    // Clean values (manage life cycle manually)
+    createPubMutation.reset();
+    formik.resetForm();
+    setFileUpload(undefined);
+
     onClose();
   }
 
@@ -115,5 +122,20 @@ export const useHandlePost = (props: IProps) => {
     closePublicationModal();
   }
 
-  return { formik, fileUpload, isPending, getRootProps, getInputProps };
+  // Clean actions on create again
+  useEffect(() => {
+    if (action === 'create') {
+      formik.resetForm();
+      setFileUpload(undefined);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [action]);
+
+  return {
+    formik,
+    fileUpload,
+    isPending,
+    getRootProps,
+    getInputProps,
+  };
 };

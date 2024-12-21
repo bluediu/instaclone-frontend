@@ -1,5 +1,5 @@
 /* Hooks */
-import { useDate } from '../../../../hooks';
+import { useDate } from '@/apps/Posts/hooks';
 
 export const PostDate = ({ createdAt }: { createdAt: Date }) => {
   const { dayjs } = useDate();

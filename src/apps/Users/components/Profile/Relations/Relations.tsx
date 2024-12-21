@@ -1,10 +1,12 @@
 /* Components */
+import { ModalBasic } from '@/shared';
+
 import { Followers, Following } from './Items';
-import { ModalBasic } from '../../../../../shared';
 
 /* Hooks */
-import { useFollowCount } from '../../../hooks';
-import { useModal, useUI } from '../../../../../hooks';
+import { useModal, useUI } from '@/hooks';
+
+import { useFollowCount } from '@/apps/Users/hooks';
 
 import './Relations.scss';
 

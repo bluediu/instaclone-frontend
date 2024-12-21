@@ -1,16 +1,19 @@
 /* Components */
 import { Grid } from 'semantic-ui-react';
-import { NotFollowing } from '../../components';
-import { Feed } from '../../../Posts/components/Feed';
-import { ProfileIcon } from '../../../Posts/components/Home';
+
+import { NotFollowing } from '@/apps/Users/components';
+
+import { Feed } from '@/apps/Posts/components/Feed';
+import { ProfileIcon } from '@/apps/Posts/components/Home';
 
 /* Hooks */
-import { useDynamicPageTitle } from '../../../../hooks';
+import { useDeviceType, useDynamicPageTitle } from '@/hooks';
 
 import './HomePage.scss';
 
 const HomePage = () => {
   useDynamicPageTitle('Home');
+  const isTabletOrMobile = useDeviceType();
 
   return (
     <Grid className="home">
@@ -18,10 +21,12 @@ const HomePage = () => {
         <Feed />
       </Grid.Column>
 
-      <Grid.Column className="home__right" computer={5}>
-        <ProfileIcon />
-        <NotFollowing />
-      </Grid.Column>
+      {!isTabletOrMobile && (
+        <Grid.Column className="home__right" computer={5}>
+          <ProfileIcon />
+          <NotFollowing />
+        </Grid.Column>
+      )}
     </Grid>
   );
 };

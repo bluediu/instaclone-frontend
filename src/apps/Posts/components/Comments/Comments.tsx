@@ -1,21 +1,25 @@
 /* Components */
 import { Link } from 'react-router-dom';
+
 import { Comment, Dropdown } from 'semantic-ui-react';
-import { SectionSpinner } from '../../../UI/components';
+
+import { SectionSpinner } from '@/apps/UI/components';
 
 /* Hooks */
-import { useUI } from '../../../../hooks';
-import { useAuth } from '../../../Users/hooks';
-import { useComments, useDate, useRemoveComment } from '../../hooks';
+import { useUI } from '@/hooks';
+
+import { useAuth } from '@/apps/Users/hooks';
+
+import { useComments, useDate, useRemoveComment } from '@/apps/Posts/hooks';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';
 
 /* Constants */
-import { usersPath } from '../../../Users/constants';
+import { usersPath } from '@/apps/Users/constants';
 
 /* Utils */
-import { generateUrl } from '../../../../utils';
+import { generateUrl } from '@/utils';
 
 interface IProps {
   publication: string;

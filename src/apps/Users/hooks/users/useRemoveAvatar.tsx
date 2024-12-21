@@ -2,13 +2,13 @@
 import { toast } from 'react-toastify';
 
 /* Components  */
-import { Errors } from '../../../../shared';
+import { Errors } from '@/shared';
 
 /* Hooks  */
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 /* Services */
-import { userActions } from '../../services';
+import { userActions } from '@/apps/Users/services';
 
 export const useRemoveAvatar = (username: string) => {
   const queryClient = useQueryClient();

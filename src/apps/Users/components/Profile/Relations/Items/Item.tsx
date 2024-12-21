@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { Image } from 'semantic-ui-react';
 
 /* Interfaces */
-import { IFollow } from '../../../../interfaces';
+import { IFollow } from '@/apps/Users/interfaces';
 
 /* Constants */
-import { usersPath } from '../../../../constants';
+import { usersPath } from '@/apps/Users/constants';
 
 /* Utils */
-import { generateUrl } from '../../../../../../utils';
+import { generateUrl } from '@/utils';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';

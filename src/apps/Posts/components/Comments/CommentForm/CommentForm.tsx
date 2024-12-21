@@ -6,8 +6,8 @@ import { useFormik } from 'formik';
 import { Button, Form, Icon } from 'semantic-ui-react';
 
 /* Hooks */
-import { useDeviceType, useUI } from '../../../../../hooks';
-import { useAddComment, usePubContext } from '../../../hooks';
+import { useDeviceType, useUI } from '@/hooks';
+import { useAddComment, usePubContext } from '@/apps/Posts/hooks';
 
 import './CommentForm.scss';
 

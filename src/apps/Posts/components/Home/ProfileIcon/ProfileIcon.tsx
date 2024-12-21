@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 import { Image } from 'semantic-ui-react';
 
 /* Hooks */
-import { useUI } from '../../../../../hooks';
-import { useAuth } from '../../../../Users/hooks';
+import { useUI } from '@/hooks';
+import { useAuth, useUser } from '@/apps/Users/hooks';
 
 /* Constants */
-import { usersPath } from '../../../../Users/constants';
+import { usersPath } from '@/apps/Users/constants';
 
 /* Utils */
-import { generateUrl } from '../../../../../utils';
+import { generateUrl } from '@/utils';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';
@@ -21,6 +21,8 @@ export const ProfileIcon = () => {
   /* Context */
   const { data } = useUI();
   const { auth } = useAuth();
+
+  const { data: user } = useUser(auth!.username);
 
   return (
     <section className="user__profile">
@@ -33,15 +35,15 @@ export const ProfileIcon = () => {
         />
 
         <div className="user__profile-info-name">
-          <span>{auth?.username}</span>
+          <span>{user?.username}</span>
           <span>
-            {auth?.first_name} {auth?.last_name}
+            {user?.first_name} {user?.last_name}
           </span>
         </div>
       </div>
 
       <Link
-        to={generateUrl(usersPath.PROFILE, { username: auth!.username })}
+        to={generateUrl(usersPath.PROFILE, { username: user?.username || 0 })}
         className="user__profile-link"
       >
         {data.home.profileIconLink}

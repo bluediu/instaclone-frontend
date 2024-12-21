@@ -1,14 +1,16 @@
 /* Components */
-import { Search } from './Search';
-import { Link } from 'react-router-dom';
-import { RightHeader } from './RightHeader';
 import { Container, Grid, Image } from 'semantic-ui-react';
+
+import { Link } from 'react-router-dom';
+
+import { Search } from './Search';
+import { RightHeader } from './RightHeader';
 
 /* Statics */
 import LOGO from '/img/instaclone.png';
 
 /* Constants */
-import { usersPath } from '../../../Users/constants';
+import { usersPath } from '@/apps/Users/constants';
 
 import './Header.scss';
 

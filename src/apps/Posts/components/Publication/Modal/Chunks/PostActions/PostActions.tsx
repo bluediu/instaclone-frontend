@@ -2,7 +2,7 @@
 import { Icon } from 'semantic-ui-react';
 
 /* Hooks */
-import { useUI } from '../../../../../../../hooks';
+import { useUI } from '@/hooks';
 
 import {
   usePubContext,
@@ -10,10 +10,10 @@ import {
   useLiked,
   useRemoveLike,
   useCountLikes,
-} from '../../../../../hooks';
+} from '@/apps/Posts/hooks';
 
 /* Interfaces */
-import { IPubProps } from '../../../../../interfaces';
+import { IPubProps } from '@/apps/Posts/interfaces';
 
 interface IProps extends IPubProps {
   code?: string;
