@@ -1,5 +1,9 @@
 /* Components */
-import { CommentForm, Comments, CommentsWrapper } from '../../../../Comments';
+import {
+  CommentForm,
+  Comments,
+  CommentsWrapper,
+} from '@/apps/Posts/components/Comments';
 
 interface IProps {
   publication: string;

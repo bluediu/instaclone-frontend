@@ -8,11 +8,12 @@ import { useFormik } from 'formik';
 import { Button, ButtonGroup, ButtonOr, Form } from 'semantic-ui-react';
 
 /* Hooks */
-import { useUI } from '../../../../../hooks';
-import { useUserUpdate } from '../../../hooks';
+import { useUI } from '@/hooks';
+
+import { useUserUpdate } from '@/apps/Users/hooks';
 
 /* Interfaces */
-import { IUser } from '../../../interfaces';
+import { IUser } from '@/apps/Users/interfaces';
 
 /* Tipos */
 interface IEditUserForm {

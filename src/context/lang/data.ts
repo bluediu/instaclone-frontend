@@ -53,7 +53,9 @@ export const translation = {
       unfollow: 'Unfollow',
       modal: {
         followers: 'Followers',
+        noFollowers: 'No followers to show',
         following: 'Following',
+        noFollowing: 'No following users to show',
       },
       count: {
         post: 'posts',
@@ -199,7 +201,9 @@ export const translation = {
       unfollow: 'Dejar de seguir',
       modal: {
         followers: 'Seguidores',
+        noFollowers: 'Sin seguidores que mostrar',
         following: 'Seguidos',
+        noFollowing: 'Sin usuarios seguidos que mostrar.',
       },
       count: {
         post: 'publicaciones',

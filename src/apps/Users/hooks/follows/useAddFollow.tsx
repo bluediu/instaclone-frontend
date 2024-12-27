@@ -2,14 +2,14 @@
 import { toast } from 'react-toastify';
 
 /* Components */
-import { Errors } from '../../../../shared';
+import { Errors } from '@/shared';
 
 /* Hooks  */
 import { useAuth } from '../useAuth';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 /* Services */
-import { userActions } from '../../services';
+import { userActions } from '@/apps/Users/services';
 
 export const useAddFollow = (username: string) => {
   const { auth } = useAuth();

@@ -2,14 +2,14 @@
 import { toast } from 'react-toastify';
 
 /* Components */
-import { Errors } from '../../../../shared';
+import { Errors } from '@/shared';
 
 /* Hooks  */
-import { useAuth } from '../../../Users/hooks';
+import { useAuth } from '@/apps/Users/hooks';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 /* Services */
-import { postActions } from '../../services';
+import { postActions } from '@/apps/Posts/services';
 
 export const useDeletePub = (code: string) => {
   const { auth } = useAuth();
@@ -21,6 +21,7 @@ export const useDeletePub = (code: string) => {
     mutationFn: () => postActions.pubs.deletePublication(code),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['pubs', auth?.username] });
+      toast.success('Publication deleted');
     },
     onError: (error) => {
       toast.error(<Errors error={error} />, { autoClose: false });

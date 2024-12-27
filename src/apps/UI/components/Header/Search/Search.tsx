@@ -10,13 +10,13 @@ import {
 import { Link } from 'react-router-dom';
 
 /* Hooks */
-import { useSearchUsers } from '../../../../Users/hooks';
+import { useSearchUsers } from '@/apps/Users/hooks';
 
 /* Utils */
-import { generateUrl } from '../../../../../utils';
+import { generateUrl } from '@/utils';
 
 /* Constants */
-import { usersPath } from '../../../../Users/constants';
+import { usersPath } from '@/apps/Users/constants';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';

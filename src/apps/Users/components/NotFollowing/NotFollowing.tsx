@@ -1,17 +1,19 @@
 /* Components */
 import { Link } from 'react-router-dom';
 import { Image } from 'semantic-ui-react';
-import { SectionSpinner } from '../../../UI/components';
+
+import { SectionSpinner } from '@/apps/UI/components';
 
 /* Hooks */
-import { useUI } from '../../../../hooks';
-import { useNotFollowing } from '../../hooks';
+import { useUI } from '@/hooks';
+
+import { useNotFollowing } from '@/apps/Users/hooks';
 
 /* Constants */
-import { usersPath } from '../../constants';
+import { usersPath } from '@/apps/Users/constants';
 
 /* Utils */
-import { generateUrl } from '../../../../utils';
+import { generateUrl } from '@/utils';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';

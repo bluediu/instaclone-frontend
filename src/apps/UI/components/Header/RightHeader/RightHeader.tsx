@@ -1,20 +1,19 @@
 /* Components */
 import { Link } from 'react-router-dom';
 import { Dropdown, Icon, Image, Popup } from 'semantic-ui-react';
-import { ModalUpload } from '../../../../Posts/components/Publication';
+
+import { ModalUpload } from '@/apps/Posts/components/Publication';
 
 /* Constants */
-import { usersPath } from '../../../../Users/constants';
+import { usersPath } from '@/apps/Users/constants';
 
 /* Hooks */
-import { useBasicModal, useUI } from '../../../../../hooks';
-import { useAuth, useUser } from '../../../../Users/hooks';
+import { useBasicModal, useUI } from '@/hooks';
+
+import { useAuth, useUser } from '@/apps/Users/hooks';
 
 /* Utils */
-import { generateUrl } from '../../../../../utils';
-
-/* Types */
-import { TranslationType } from '../../../../../types';
+import { generateUrl } from '@/utils';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';
@@ -30,7 +29,7 @@ export const RightHeader = () => {
   const { show, showModal, closeModal } = useBasicModal();
 
   /* Data */
-  const { headerOpts } = data as TranslationType;
+  const { headerOpts } = data;
 
   const username = auth!.username;
   const query = useUser(username);

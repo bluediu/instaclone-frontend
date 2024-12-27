@@ -3,36 +3,32 @@ import { Container, Dropdown, Image } from 'semantic-ui-react';
 import { LoginForm, SignUp } from '../../components/Auth';
 
 /* Hooks */
-import { useAuth } from '../../hooks';
-import { useUI } from '../../../../hooks';
+import { useUI } from '@/hooks';
+
+import { useAuth } from '@/apps/Users/hooks';
 
 /* Types */
-import { TLang } from '../../../../types';
-
-/* Constants */
-import { LANG } from '../../../../constants';
+import { TLang } from '@/types';
 
 /* Statics */
 import LOGO from '/img/instaclone.png';
 
 import './AuthPage.scss';
 
-const languageOptions = [
-  { key: 'en', text: 'English', value: 'en' },
-  { key: 'es', text: 'Spanish', value: 'es' },
-];
-
 export const AuthPage = () => {
-  const { data, changeLang } = useUI();
-
-  const { auth } = data;
-
+  // Context
+  const { data, lang, changeLang } = useUI();
   const { switchAuthPage, handleAuthPage } = useAuth();
 
+  const { auth, headerOpts } = data;
+
+  const languageOptions = [
+    { key: 'en', text: `${headerOpts.lang.en}`, value: 'en' },
+    { key: 'es', text: `${headerOpts.lang.es}`, value: 'es' },
+  ];
+
   const defaultValue =
-    localStorage.getItem(LANG) === 'en'
-      ? languageOptions[0].value
-      : languageOptions[1].value;
+    lang === 'en' ? languageOptions[0].value : languageOptions[1].value;
 
   return (
     <Container fluid className="auth">

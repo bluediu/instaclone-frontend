@@ -4,11 +4,12 @@ import { Modal as PublicationModal } from './Modal';
 import { Divider, Grid, Icon } from 'semantic-ui-react';
 
 /* Interfaces */
-import { IPublication } from '../../interfaces';
+import { IPublication } from '@/apps/Posts/interfaces';
 
 /* Hooks */
-import { usePubContext } from '../../hooks';
-import { useDeviceType, useUI } from '../../../../hooks';
+import { useDeviceType, useUI } from '@/hooks';
+
+import { usePubContext } from '@/apps/Posts/hooks';
 
 import './Publications.scss';
 

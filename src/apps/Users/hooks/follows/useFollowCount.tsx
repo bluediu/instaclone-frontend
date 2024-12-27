@@ -2,10 +2,10 @@
 import { useQuery } from '@tanstack/react-query';
 
 /* Services */
-import { userActions } from '../../services';
+import { userActions } from '@/apps/Users/services';
 
 /* Constants */
-import { STALE_TIME } from '../../../../constants';
+import { STALE_TIME } from '@/constants';
 
 export const useFollowCount = (username: string) => {
   const query = useQuery({

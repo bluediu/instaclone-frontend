@@ -1,7 +1,7 @@
 import { createContext, useState } from 'react';
 
 /* Hooks */
-import { useBasicModal } from '../../../hooks';
+import { useBasicModal } from '@/hooks';
 
 /* Interfaces */
 import { IPublication } from '../interfaces';

@@ -2,7 +2,7 @@
 import { Divider } from 'semantic-ui-react';
 
 /* Hooks */
-import { useUI } from '../../../../../hooks';
+import { useUI } from '@/hooks';
 
 export const Loading = () => {
   const { data } = useUI();

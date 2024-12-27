@@ -2,13 +2,13 @@
 import { toast } from 'react-toastify';
 
 /* Components */
-import { Errors } from '../../../../shared';
+import { Errors } from '@/shared';
 
 /* Hooks  */
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 /* Services */
-import { postActions } from '../../services';
+import { postActions } from '@/apps/Posts/services';
 
 export const useRemoveLike = (code: string) => {
   const queryClient = useQueryClient();

@@ -2,17 +2,17 @@
 import { toast } from 'react-toastify';
 
 /* Components */
-import { Errors } from '../../../../shared';
+import { Errors } from '@/shared';
 
 /* Hooks  */
 import { useAuth } from '../useAuth';
 import { useMutation } from '@tanstack/react-query';
 
 /* Services */
-import { userActions } from '../../services';
+import { userActions } from '@/apps/Users/services';
 
 /* Constants */
-import { TOKEN } from '../../../../constants';
+import { TOKEN } from '@/constants';
 
 export const useSignUpMutation = () => {
   const { handleAuthPage } = useAuth();

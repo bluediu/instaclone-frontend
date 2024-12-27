@@ -2,17 +2,17 @@
 import { toast } from 'react-toastify';
 
 /* Components */
-import { Errors } from '../../../../shared';
+import { Errors } from '@/shared';
 
 /* Hooks  */
-import { useAuth } from '../../../Users/hooks';
+import { useAuth } from '@/apps/Users/hooks';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 /* Interfaces */
-import { IUpdatePub } from '../../interfaces';
+import { IUpdatePub } from '@/apps/Posts/interfaces';
 
 /* Services */
-import { postActions } from '../../services';
+import { postActions } from '@/apps/Posts/services';
 
 export const useUpdatePub = (code: string) => {
   const { auth } = useAuth();
@@ -25,7 +25,6 @@ export const useUpdatePub = (code: string) => {
       postActions.pubs.updatePublication(code, data),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['pubs', auth?.username] });
-      toast.success('Publication updated');
     },
     onError: (error) => {
       toast.error(<Errors error={error} />, { autoClose: false });

@@ -1,12 +1,15 @@
 /* Components */
-import { MobileComments } from './Comments';
 import { Grid, Segment } from 'semantic-ui-react';
-import { ModalBasic } from '../../../../../../shared';
+
+import { ModalBasic } from '@/shared';
+
+import { MobileComments } from './Comments';
 import { PostActions, PostDate, PostHeader, PostImage } from '../Chunks';
 
 /* Hooks */
-import { useModal, useUI } from '../../../../../../hooks';
-import { useImgToggle, usePubContext } from '../../../../hooks';
+import { useModal, useUI } from '@/hooks';
+
+import { useImgToggle, usePubContext } from '@/apps/Posts/hooks';
 
 import './Mobile.scss';
 

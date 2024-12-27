@@ -5,7 +5,7 @@ import { pubApi } from '../api';
 import { ICreatePub, IUpdatePub, IPublication } from '../interfaces';
 
 /* Utils */
-import { fn } from '../../../utils';
+import { fn } from '@/utils';
 
 /* ==== Publications ==== */
 export const listPubs = async (username: string): Promise<IPublication[]> => {

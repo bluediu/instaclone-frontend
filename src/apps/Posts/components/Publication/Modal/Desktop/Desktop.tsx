@@ -1,6 +1,6 @@
 /* Components */
 import { Grid, Segment } from 'semantic-ui-react';
-import { CommentForm, Comments } from '../../../Comments';
+import { CommentForm, Comments } from '@/apps/Posts/components/Comments';
 import {
   PostHeader,
   PostDescription,
@@ -10,7 +10,7 @@ import {
 } from '../Chunks';
 
 /* Hooks */
-import { useImgToggle, usePubContext } from '../../../../hooks';
+import { useImgToggle, usePubContext } from '@/apps/Posts/hooks';
 
 import './Desktop.scss';
 
@@ -20,7 +20,6 @@ export const Desktop = () => {
   const { toggleImageSize, handleToggleSize } = useImgToggle();
 
   return (
-    // TODO: Use component pattern
     <Grid>
       <Grid.Column
         className="modal-publication__left"

@@ -2,20 +2,25 @@
 import { Link } from 'react-router-dom';
 import { Icon, Image } from 'semantic-ui-react';
 
+import { ModalBasic } from '@/shared';
+
 import { ModalUpload } from '../../ModalUpload';
+
 import { HeaderOptions } from './HeaderOptions';
-import { ModalBasic } from '../../../../../../shared';
 
 /* Hooks */
-import { usePubContext } from '../../../../hooks';
-import { useAuth } from '../../../../../Users/hooks';
-import { useBasicModal, useModal } from '../../../../../../hooks';
+
+import { useAuth } from '@/apps//Users/hooks';
+
+import { useBasicModal, useModal } from '@/hooks';
+
+import { usePubContext } from '@/apps/Posts/hooks';
 
 /* Utils */
-import { generateUrl } from '../../../../../../utils';
+import { generateUrl } from '@/utils';
 
 /* Constants */
-import { usersPath } from '../../../../../Users/constants';
+import { usersPath } from '@/apps/Users/constants';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';

@@ -1,20 +1,20 @@
 /* Components */
 import { Link } from 'react-router-dom';
-import { Comments } from '../../../Comments';
-import { CommentsWrapper } from '../../../Comments';
 import { Comment, Divider } from 'semantic-ui-react';
 
+import { Comments, CommentsWrapper } from '@/apps/Posts/components/Comments';
+
 /* Interfaces */
-import { IPubProps } from '../../../../interfaces';
+import { IPubProps } from '@/apps/Posts/interfaces';
 
 /* Hooks */
-import { useDate } from '../../../../hooks';
+import { useDate } from '@/apps/Posts/hooks';
 
 /* Constants */
-import { usersPath } from '../../../../../Users/constants';
+import { usersPath } from '@/apps/Users/constants';
 
 /* Utils */
-import { generateUrl } from '../../../../../../utils';
+import { generateUrl } from '@/utils';
 
 /* Statics */
 import NO_IMAGE from '/img/avatar.png';

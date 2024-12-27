@@ -5,10 +5,11 @@ import { Button, Icon } from 'semantic-ui-react';
 
 /* Hooks */
 import { useDropzone } from 'react-dropzone';
-import { useUploadAvatar, useRemoveAvatar } from '../../../../hooks';
+
+import { useUploadAvatar, useRemoveAvatar } from '@/apps/Users/hooks';
 
 /* Types */
-import { TranslationType } from '../../../../../../types';
+import { TranslationType } from '@/types';
 
 import './Avatar.scss';
 
@@ -50,6 +51,8 @@ export const Avatar = (props: IProps) => {
   });
 
   const onRemove = () => removeMutation.mutate();
+
+  if (removeMutation.isSuccess || removeMutation.isError) onClose();
 
   const isPending = uploadMutation.isPending || removeMutation.isPending;
 
